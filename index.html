@@ -530,6 +530,63 @@
       background: linear-gradient(145deg, #0d1527 0%, #101c38 100%);
       box-shadow: 0 12px 36px rgba(0, 242, 254, 0.18);
     }
+        .store-thumb {
+      width: 100%;
+      height: 165px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #090e1c;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      display: block;
+    }
+    .store-card:hover .store-thumb {
+      transform: scale(1.025);
+      border-color: rgba(0, 242, 254, 0.4);
+    }
+    .hero-video-box {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.7), 0 0 25px rgba(0, 242, 254, 0.15);
+      border: 1.5px solid rgba(0, 242, 254, 0.3);
+      background: #000;
+      margin-bottom: 12px;
+    }
+    .hero-video-box video {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    .hero-video-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(7, 11, 20, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      border-radius: 20px;
+      padding: 5px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #00f2fe;
+      z-index: 2;
+    }
+    .hero-video-badge span.pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      display: inline-block;
+    }
     .store-tag {
       font-family: 'JetBrains Mono', monospace;
       font-size: 10.5px;
@@ -1147,10 +1204,18 @@
       </div>
 
       <div class="hero-visual-card">
-        <img src="assets/studio_banner.jpg" alt="Creator Media Studios Showcase" class="main-banner" onerror="this.style.display='none'">
+        <div class="hero-video-box">
+          <div class="hero-video-badge">
+            <span class="pulse-dot"></span>
+            4K SHOWCASE &bull; WORKHORSE AUTONOMOUS PIPELINE
+          </div>
+          <video autoplay loop muted playsinline poster="assets/GIG2_VIDEO_REELS_COVER.jpg">
+            <source src="assets/GIG2_PROMO_SHOWCASE_30S.mp4" type="video/mp4">
+          </video>
+        </div>
         <div class="hero-sub-grid">
-          <img src="assets/service_color_grading.jpg" alt="Color Grading & Film Emulation">
-          <img src="assets/service_video_reels.jpg" alt="Cinematic Short-Form Video Reels">
+          <img src="assets/1_FIVERR_MAIN_COVER_CreatorMediaLab.jpg" alt="Color Grading & Film Emulation">
+          <img src="assets/2_FIVERR_BEFORE_AFTER_DETAIL.jpg" alt="Neural Frequency Separation Retouching">
         </div>
       </div>
     </section>
@@ -1177,11 +1242,11 @@
           <span style="font-size:12.5px;color:var(--text-muted);font-family:'JetBrains Mono',monospace;">Drag slider to preview DaVinci 3D LUT Color Grade</span>
         </div>
         <div class="compare-box" id="compareBox">
-          <!-- Background: After Image (Graded) -->
-          <img src="assets/service_color_grading.jpg" alt="Graded with Creator Media Assets" class="compare-img-layer">
-          <!-- Foreground Overlay: Before Image (Raw / Ungraded) -->
+          <!-- Background: After Image (Graded / Retouched Master) -->
+          <img src="assets/1_FIVERR_MAIN_COVER_CreatorMediaLab.jpg" alt="Graded with Creator Media Assets" class="compare-img-layer">
+          <!-- Foreground Overlay: Before Image (Raw Detail) -->
           <div class="compare-overlay" id="compareOverlay">
-            <img src="assets/service_retouching.jpg" alt="Raw Ungraded Footage" class="compare-img-layer" id="compareBeforeImg">
+            <img src="assets/2_FIVERR_BEFORE_AFTER_DETAIL.jpg" alt="Raw Ungraded Footage" class="compare-img-layer" id="compareBeforeImg">
           </div>
           <input type="range" min="0" max="100" value="50" class="compare-slider" id="compareSlider" aria-label="Before and after color comparison">
           <div class="compare-handle" id="compareHandle">↔</div>
@@ -1195,6 +1260,7 @@
         <!-- 1: Master Suite -->
         <div class="store-card featured">
           <span class="store-tag">Hero Suite &bull; Complete Bundle</span>
+          <img src="assets/1_FIVERR_MAIN_COVER_CreatorMediaLab.jpg" alt="Master Studio Color & Lighting Suite" class="store-thumb">
           <h3>Master Studio Color, Posing &amp; Release Suite</h3>
           <p>The ultimate production suite combining our 5 signature Lightroom film presets, 50 portrait lighting cue cards, commercial release contracts, and social promo templates.</p>
           <ul>
@@ -1212,6 +1278,7 @@
         <!-- 2: DaVinci 3D LUTs -->
         <div class="store-card">
           <span class="store-tag">DaVinci Resolve &bull; Premiere &bull; FCP</span>
+          <img src="assets/3_FIVERR_COLOR_GRADES_AND_CROPS.jpg" alt="Cinematic 3D LUT Master Pack" class="store-thumb">
           <h3>Cinematic 3D LUT Pack (33x33x33 Lattice)</h3>
           <p>Engineered for smooth highlight roll-off, rich analog warmth, and cinematic shadow tonality. Perfect for Rec.709, Sony S-Log3, Canon C-Log, and iPhone ProRes Log.</p>
           <ul>
@@ -1228,6 +1295,7 @@
         <!-- 3: 50 Lighting Cards -->
         <div class="store-card">
           <span class="store-tag">Studio Director Deck</span>
+          <img src="assets/GIG3_SLIDE3_OVERLAYS.jpg" alt="50 Portrait Posing & Lighting Cards" class="store-thumb">
           <h3>50 Portrait Posing &amp; Lighting Angle Cards</h3>
           <p>Illustrated studio flashcards and mobile lookbook detailing key light angles, softbox positions, rim ratios, camera focal lengths, and model director prompts.</p>
           <ul>
@@ -1244,6 +1312,7 @@
         <!-- 4: Film Emulation Presets -->
         <div class="store-card">
           <span class="store-tag">Lightroom Desktop &bull; Mobile &bull; ACR</span>
+          <img src="assets/2_FIVERR_BEFORE_AFTER_DETAIL.jpg" alt="Signature 35mm Film Presets" class="store-thumb">
           <h3>Signature 35mm Analog Film Presets</h3>
           <p>Nostalgic analog film emulation inspired by Portra 400 and CineStill 800T. Tames harsh digital highlights and brings organic texture to portraits and street photography.</p>
           <ul>
@@ -1260,6 +1329,7 @@
         <!-- 5: Short-Form Video Reels Pack -->
         <div class="store-card">
           <span class="store-tag">YouTube Shorts &bull; TikTok &bull; Reels</span>
+          <img src="assets/GIG2_VIDEO_REELS_COVER.jpg" alt="Cinematic Video Reels & Viral Hooks" class="store-thumb">
           <h3>Cinematic Video Reels &amp; Hook Formulas</h3>
           <p>High-retention 9:16 vertical video templates, visual hook cards, and animated subtitle pacing guidelines tested for maximum 3-second viewer retention.</p>
           <ul>
@@ -1276,6 +1346,7 @@
         <!-- 6: Commercial Release Contracts -->
         <div class="store-card">
           <span class="store-tag">Studio Protection &bull; Legal Contracts</span>
+          <img src="assets/GIG3_SLIDE2_HEADERS.jpg" alt="Model & Location Release Agreements" class="store-thumb">
           <h3>Model &amp; Location Release Contract Pack</h3>
           <p>Legally drafted standard commercial release agreements for photographers, videographers, and creators. Protect your intellectual property before publishing.</p>
           <ul>
@@ -1292,6 +1363,7 @@
         <!-- 7: Photography Prompt Bible -->
         <div class="store-card">
           <span class="store-tag">AI Photography &bull; Lighting Prompt Bible</span>
+          <img src="assets/GIG2_SLIDE3_FEATURES.jpg" alt="AI Studio Prompt Bible" class="store-thumb">
           <h3>Studio Photography AI Prompt Bible (150+)</h3>
           <p>Precision photographic prompts calibrated with exact 35mm focal lengths, studio strobe ratios, aperture values, and skin texture parameters for Midjourney, Flux, and ComfyUI.</p>
           <ul>
@@ -1308,6 +1380,7 @@
         <!-- 8: Maker Studio STL & Laser SVGs (CraftyMyia) -->
         <div class="store-card" style="border-color:rgba(16,185,129,0.35);">
           <span class="store-tag" style="color:var(--deals-green);">3D PRINTABLE STL &bull; LASER SVG</span>
+          <img src="assets/mockup_stl_planters.jpg" alt="CraftyMyia 3D Print STLs & SVGs" class="store-thumb">
           <h3>CraftyMyia Maker Studio Collection</h3>
           <p>Watertight manifold 3D-printable .STL models (geometric planters, desk organizers, cookie cutters) and layered SVG cut files for laser cutters, Cricut, and 3D printers.</p>
           <ul>
@@ -1483,6 +1556,13 @@
             We've dispatched your welcome package and added <strong><span id="confirmedEmail">your email</span></strong> to your daily briefings.
           </p>
           <div id="confirmedList" style="margin-bottom:20px;"></div>
+          <div style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.4);border-radius:10px;padding:16px 20px;margin-bottom:24px;text-align:left;">
+            <div style="font-weight:800;color:#10b981;font-size:15px;margin-bottom:6px;">🎁 Instant Bonus: Free Film LUT Starter Pack Ready!</div>
+            <p style="font-size:13px;color:#cbd5e1;margin-bottom:12px;line-height:1.5;">Your free 35mm film simulation .CUBE LUT and 3-point lighting setup cheat sheet are ready for immediate download.</p>
+            <a href="mailto:digitalcreatorassets@gmail.com?subject=Claim%20Free%20LUT%20Pack&body=Please%20send%20the%20Film%20LUT%20Starter%20Pack" class="nav-btn primary" style="display:inline-flex;padding:9px 18px;font-size:13px;border-color:#10b981;background:linear-gradient(135deg,#059669,#10b981);">
+              📥 Download Film LUT Starter Pack (.zip) &rarr;
+            </a>
+          </div>
           <a href="#assets" class="nav-btn primary">
             🎨 Browse Creator Media Assets &rarr;
           </a>
@@ -1572,7 +1652,7 @@
         
         <!-- Service 1: Photo Retouching -->
         <div class="service-card">
-          <img src="assets/service_retouching.jpg" alt="Editorial Portrait Retouching & Relighting">
+          <img src="assets/2_FIVERR_BEFORE_AFTER_DETAIL.jpg" alt="Editorial Portrait Retouching & Relighting">
           <div class="service-body">
             <div>
               <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
@@ -1595,7 +1675,7 @@
 
         <!-- Service 2: Video Teasers -->
         <div class="service-card">
-          <img src="assets/service_video_reels.jpg" alt="Short-Form Video Reels & Motion Graphics">
+          <img src="assets/GIG2_VIDEO_REELS_COVER.jpg" alt="Short-Form Video Reels & Motion Graphics">
           <div class="service-body">
             <div>
               <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
@@ -1618,9 +1698,9 @@
 
         <!-- Service 3: 2D Photo to 3D PBR Model (Unlisted on Fiverr due to limits) -->
         <div class="service-card" style="border-color:rgba(0,242,254,0.35);">
-          <div style="background:#000;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-            <div style="position:absolute;font-size:64px;opacity:0.35;">🧊</div>
-            <span style="position:relative;z-index:2;background:rgba(0,242,254,0.2);border:1px solid #00f2fe;color:#00f2fe;font-family:'JetBrains Mono';font-size:11px;font-weight:800;padding:4px 10px;border-radius:4px;">NEURAL 3D PIPELINE</span>
+          <div style="position:relative;overflow:hidden;">
+            <img src="assets/mockup_stl_planters.jpg" alt="Photo to 3D PBR Model" style="width:100%;height:180px;object-fit:cover;">
+            <span style="position:absolute;bottom:10px;left:10px;background:rgba(7,11,20,0.85);backdrop-filter:blur(6px);border:1px solid #00f2fe;color:#00f2fe;font-family:'JetBrains Mono';font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;">NEURAL 3D PIPELINE</span>
           </div>
           <div class="service-body">
             <div>
@@ -1644,9 +1724,9 @@
 
         <!-- Service 4: Still Photo to 4K 60fps Video Loop (Unlisted on Fiverr due to limits) -->
         <div class="service-card" style="border-color:rgba(247,37,133,0.35);">
-          <div style="background:#000;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-            <div style="position:absolute;font-size:64px;opacity:0.35;">🌊</div>
-            <span style="position:relative;z-index:2;background:rgba(247,37,133,0.2);border:1px solid var(--pulse-magenta);color:var(--pulse-magenta);font-family:'JetBrains Mono';font-size:11px;font-weight:800;padding:4px 10px;border-radius:4px;">LIVING CINEMAGRAPH</span>
+          <div style="position:relative;overflow:hidden;">
+            <img src="assets/GIG2_SLIDE2_FORMATS.jpg" alt="Photo to 4K Video Loop" style="width:100%;height:180px;object-fit:cover;">
+            <span style="position:absolute;bottom:10px;left:10px;background:rgba(7,11,20,0.85);backdrop-filter:blur(6px);border:1px solid var(--pulse-magenta);color:var(--pulse-magenta);font-family:'JetBrains Mono';font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;">LIVING CINEMAGRAPH</span>
           </div>
           <div class="service-body">
             <div>
@@ -1670,9 +1750,9 @@
 
         <!-- Service 5: Neural Studio Relighting (Unlisted on Fiverr due to limits) -->
         <div class="service-card" style="border-color:rgba(234,179,8,0.35);">
-          <div style="background:#000;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-            <div style="position:absolute;font-size:64px;opacity:0.35;">💡</div>
-            <span style="position:relative;z-index:2;background:rgba(234,179,8,0.2);border:1px solid var(--blueprint-gold);color:var(--blueprint-gold);font-family:'JetBrains Mono';font-size:11px;font-weight:800;padding:4px 10px;border-radius:4px;">RAYTRACED RELIGHTING</span>
+          <div style="position:relative;overflow:hidden;">
+            <img src="assets/3_FIVERR_COLOR_GRADES_AND_CROPS.jpg" alt="Portrait Neural Relighting" style="width:100%;height:180px;object-fit:cover;">
+            <span style="position:absolute;bottom:10px;left:10px;background:rgba(7,11,20,0.85);backdrop-filter:blur(6px);border:1px solid var(--blueprint-gold);color:var(--blueprint-gold);font-family:'JetBrains Mono';font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;">RAYTRACED RELIGHTING</span>
           </div>
           <div class="service-body">
             <div>
@@ -1696,9 +1776,9 @@
 
         <!-- Service 6: Social Copywriting & Captions -->
         <div class="service-card">
-          <div style="background:#000;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-            <div style="position:absolute;font-size:64px;opacity:0.35;">✍️</div>
-            <span style="position:relative;z-index:2;background:rgba(0,242,254,0.2);border:1px solid #00f2fe;color:#00f2fe;font-family:'JetBrains Mono';font-size:11px;font-weight:800;padding:4px 10px;border-radius:4px;">COPYWRITING &amp; HOOKS</span>
+          <div style="position:relative;overflow:hidden;">
+            <img src="assets/GIG3_SLIDE2_HEADERS.jpg" alt="Copywriting & Captions" style="width:100%;height:180px;object-fit:cover;">
+            <span style="position:absolute;bottom:10px;left:10px;background:rgba(7,11,20,0.85);backdrop-filter:blur(6px);border:1px solid #00f2fe;color:#00f2fe;font-family:'JetBrains Mono';font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;">COPYWRITING &amp; HOOKS</span>
           </div>
           <div class="service-body">
             <div>
@@ -1722,7 +1802,7 @@
 
         <!-- Service 7: Channel Banners & Tip Menus -->
         <div class="service-card">
-          <img src="assets/service_color_grading.jpg" alt="Channel Branding & Custom Graphics">
+          <img src="assets/GIG3_TIP_MENUS_COVER.jpg" alt="Channel Branding & Tip Menus">
           <div class="service-body">
             <div>
               <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
@@ -1851,6 +1931,23 @@
       submitBtn.disabled = true;
       submitBtn.innerText = "Subscribing...";
 
+      // 1. Direct submit to Beehiiv publication (pub_70adcb89-d55d-45ea-b976-28ddd1f37921)
+      try {
+        fetch('https://subscribe.beehiiv.com/subscribe', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({
+            publication_id: 'pub_70adcb89-d55d-45ea-b976-28ddd1f37921',
+            email: email,
+            name: name,
+            utm_source: 'creatormediastudios.com',
+            utm_medium: 'pulse_optin'
+          })
+        });
+      } catch (e) {}
+
+      // 2. Also sync to local WORKHORSE dispatcher if active
       try {
         await fetch("/api/newsletter/subscribe", {
           method: "POST",
