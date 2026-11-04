@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinterest &amp; YouTube Integrations • Creator Media Studios</title>
+  <meta name="description" content="How Creator Media Studios and CraftyMyia use the Pinterest API v5 and YouTube API Services: what the apps do, the OAuth scopes requested, what data is handled, and how access can be revoked.">
+  <link rel="canonical" href="https://creatormediastudios.com/integrations.html">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-badge">C</div>
+        <div class="brand-text">
+          <strong>Creator Media Studios</strong>
+          <span>Creatormediastudios.com &bull; CreatorMediaLab</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html#assets">Presets &amp; LUTs</a>
+        <a href="index.html#services">Studio Services</a>
+        <a href="integrations.html" aria-current="page">Integrations</a>
+        <a href="about.html">About &amp; Contact</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="btn-cta">Digital Store &rarr;</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="policy-card">
+      <div class="badge-row">
+        <span class="badge">Pinterest API v5</span>
+        <span class="badge">YouTube API Services</span>
+        <span class="badge">First-party publishing only</span>
+      </div>
+      <h1>Pinterest &amp; YouTube Integrations</h1>
+      <div class="meta">
+        How our publishing tools use these platforms &bull; Operated by Creator Media Studios (CreatorMediaLab) &amp; CraftyMyia
+      </div>
+
+      <h2>What this is</h2>
+      <p>
+        Creator Media Studios runs a private, in-house publishing tool that posts our own original content to our own social accounts. It is an internal studio tool for a small business, not a public app. Visitors and customers never sign in to it, and it never connects to anyone else's Pinterest or Google account.
+      </p>
+
+      <div class="card-grid">
+        <div class="mini-card">
+          <strong>Pinterest (live)</strong>
+          <p>The CraftyMyia Pinterest Business account shares pins for our own Etsy digital products (SVG cut files and 3D-print STL files), each linking back to the Etsy listing.</p>
+        </div>
+        <div class="mini-card">
+          <strong>YouTube (being set up)</strong>
+          <p>We are creating a Creator Media Studios channel for color-grading walkthroughs, lighting tutorials and Shorts. The YouTube integration will publish only to that channel.</p>
+        </div>
+      </div>
+
+      <h2>How the sign-in (OAuth 2.0) works</h2>
+      <ol>
+        <li>A studio operator clicks <strong>Connect Pinterest</strong> in our private studio dashboard.</li>
+        <li>The browser is sent to Pinterest's own consent screen at <code>pinterest.com/oauth</code>, where the operator signs in on Pinterest and reviews the permissions requested.</li>
+        <li>After the operator approves, Pinterest redirects back to our dashboard with a one-time authorization code and a random <code>state</code> value that we verify.</li>
+        <li>The dashboard exchanges the code for an access token and a refresh token over HTTPS. Tokens are kept in an access-controlled file on our own computer, are never shown on screen and are refreshed automatically.</li>
+      </ol>
+      <p>We never see or store a Pinterest or Google password.</p>
+
+      <h2>Permissions we request and why</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Scope</th><th>Why we need it</th></tr></thead>
+          <tbody>
+            <tr><td><code>user_accounts:read</code></td><td>Confirm which of our own accounts is connected.</td></tr>
+            <tr><td><code>boards:read</code></td><td>List our own boards so a pin can be assigned to one.</td></tr>
+            <tr><td><code>boards:write</code></td><td>Create a board for a new product category. Pinterest also requires it to create pins.</td></tr>
+            <tr><td><code>pins:read</code></td><td>Check that pins we created exist and avoid posting duplicates.</td></tr>
+            <tr><td><code>pins:write</code></td><td>Create pins for our own Etsy products.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>For YouTube we will request only the scope needed to upload videos to our own channel, and nothing else.</p>
+
+      <h2>What we publish</h2>
+      <ul>
+        <li>Product images and short descriptions for our own Etsy listings, each linking to the listing.</li>
+        <li>Educational photography, lighting and color-grading content (YouTube).</li>
+        <li>No more than a few posts per day, paced by our scheduler. No bulk or spam posting.</li>
+      </ul>
+      <div class="compliance-box">
+        <p>
+          <strong>Content safety:</strong> every pin passes an automatic safety check before it is sent. Content that is adult, suggestive, or otherwise outside Pinterest's Community Guidelines is blocked, and only general-audience product and educational content is published through these integrations.
+        </p>
+      </div>
+
+      <h2>What we do not do</h2>
+      <ul>
+        <li>We do not read, collect, store or share data about other Pinterest or YouTube users.</li>
+        <li>We do not sell data, use it for advertising, or build profiles from it.</li>
+        <li>We do not auto-follow, auto-like, auto-comment, scrape or message other users.</li>
+        <li>We do not let third parties connect their accounts to our tool.</li>
+      </ul>
+
+      <h2>Revoking access or deleting data</h2>
+      <ul>
+        <li><strong>Pinterest:</strong> remove our app from the connected apps / permissions section of your Pinterest account settings at any time. When we disconnect an integration, the stored tokens are deleted.</li>
+        <li><strong>Google / YouTube:</strong> revoke access at <a href="https://security.google.com/settings/security/permissions" target="_blank" rel="noopener">security.google.com/settings/security/permissions</a>.</li>
+        <li>Questions or deletion requests: <a href="mailto:digitalcreatorassets@gmail.com">digitalcreatorassets@gmail.com</a>.</li>
+      </ul>
+
+      <h2>Related policies</h2>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a> (includes Pinterest and YouTube API Services sections)</li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="https://policy.pinterest.com/en/privacy-policy" target="_blank" rel="noopener">Pinterest Privacy Policy</a> &bull; <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> &bull; <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube Terms of Service</a></li>
+      </ul>
+
+      <p style="margin-top: 28px;"><a href="index.html">&larr; Back to Creator Media Studios</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a href="index.html">Home</a>
+      <a href="integrations.html">Integrations</a>
+      <a href="about.html">About &amp; Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener">Etsy Store</a>
+    </div>
+    <p style="margin-top: 10px;">&copy; 2026 Creator Media Studios (Creatormediastudios.com &bull; CreatorMediaLab). All rights reserved.</p>
+  </footer>
+</body>
+</html>

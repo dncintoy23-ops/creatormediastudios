@@ -1,0 +1,52 @@
+:root {
+  --bg-dark: #070b14;
+  --card-bg: #0d1527;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --studio-cyan: #00f2fe;
+  --cobalt: #4f7cff;
+  --emerald: #10b981;
+  --text-white: #f8fafc;
+  --text-sub: #cbd5e1;
+  --text-muted: #94a3b8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg-dark); color: var(--text-sub); font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; padding-bottom: 80px; }
+header.site-header { background: rgba(7, 11, 20, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 50; padding: 14px 24px; }
+.header-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-white); }
+.brand-badge { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--cobalt), var(--studio-cyan)); display: flex; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 20px; color: #070b14; }
+.brand-text strong { display: block; font-family: 'Outfit', sans-serif; font-size: 19px; color: var(--text-white); line-height: 1.1; }
+.brand-text span { font-size: 12px; color: var(--text-muted); }
+.nav-links { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.nav-links a { text-decoration: none; color: var(--text-sub); font-size: 14px; font-weight: 600; transition: color 0.15s; }
+.nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--studio-cyan); }
+.btn-cta { background: linear-gradient(135deg, var(--cobalt), var(--studio-cyan)); color: #070b14 !important; padding: 9px 18px; border-radius: 999px; font-weight: 800; font-size: 13.5px; }
+.container { max-width: 860px; margin: 44px auto 0; padding: 0 20px; }
+.policy-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; padding: 48px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45); }
+.badge-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+.badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; background: rgba(0, 242, 254, 0.12); border: 1px solid rgba(0, 242, 254, 0.3); color: var(--studio-cyan); }
+h1 { font-family: 'Outfit', sans-serif; font-size: 34px; color: var(--text-white); line-height: 1.2; margin-bottom: 8px; }
+.meta { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--border-color); }
+h2 { font-family: 'Outfit', sans-serif; font-size: 20px; color: var(--studio-cyan); margin: 32px 0 12px; }
+p { margin-bottom: 14px; font-size: 15px; }
+ul, ol { padding-left: 22px; margin-bottom: 16px; }
+li { margin-bottom: 8px; font-size: 15px; }
+a { color: var(--studio-cyan); font-weight: 600; }
+code { font-family: 'JetBrains Mono', Consolas, monospace; font-size: 13px; background: rgba(255, 255, 255, 0.06); padding: 1px 6px; border-radius: 6px; }
+.compliance-box { background: rgba(79, 124, 255, 0.08); border: 1px solid rgba(79, 124, 255, 0.3); border-left: 4px solid var(--studio-cyan); border-radius: 12px; padding: 18px 22px; margin: 20px 0; }
+.compliance-box p:last-child { margin-bottom: 0; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 14px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border-color); vertical-align: top; }
+th { color: var(--text-white); font-weight: 700; }
+.table-wrap { overflow-x: auto; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 14px; margin: 14px 0 20px; }
+.mini-card { border: 1px solid var(--border-color); border-radius: 14px; padding: 16px 18px; background: rgba(255, 255, 255, 0.02); }
+.mini-card strong { display: block; color: var(--text-white); font-family: 'Outfit', sans-serif; margin-bottom: 4px; }
+.mini-card p { font-size: 14px; margin-bottom: 0; }
+footer.site-footer { max-width: 860px; margin: 40px auto 0; padding: 24px 20px 0; text-align: center; font-size: 13.5px; color: var(--text-muted); }
+footer.site-footer a { color: var(--text-sub); text-decoration: none; margin: 0 10px; display: inline-block; }
+@media (max-width: 640px) {
+  header.site-header { position: static; }
+  .policy-card { padding: 28px 22px; }
+  h1 { font-size: 26px; }
+}

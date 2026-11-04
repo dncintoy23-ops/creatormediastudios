@@ -1171,6 +1171,10 @@
       .pulse-lab-feature { grid-template-columns: 1fr; padding: 24px; }
       .pulse-perks-list { grid-template-columns: 1fr; }
     }
+    @media (max-width: 760px) {
+      /* The wrapped nav is too tall to keep pinned on phones */
+      header.site-header { position: static; }
+    }
   </style>
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 </head>
@@ -1193,11 +1197,11 @@
         </div>
       </a>
       <div class="header-links">
-        <a href="#assets" class="nav-link">🎨 Creator Media Assets</a>
-        <a href="#pulse" class="nav-link">✨ Creator Pulse Lab</a>
+        <a href="#assets" class="nav-link">🎨 Assets</a>
+        <a href="#pulse" class="nav-link">✨ Pulse Lab</a>
         <a href="#social-hub" class="nav-link">📺 YouTube &amp; Pinterest</a>
-        <a href="#services" class="nav-link">🛠️ Studio Services</a>
-        <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn primary">
+        <a href="#services" class="nav-link">🛠️ Services</a>
+        <a href="about.html" class="nav-link">ℹ️ About</a>        <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn primary">
           🛒 Etsy Digital Store &rarr;
         </a>
       </div>
@@ -1683,6 +1687,9 @@
           </div>
         </div>
       </div>
+      <p style="text-align:center;margin-top:20px;font-size:14px;color:var(--text-muted);">
+        Curious how our publishing tools work with Pinterest and YouTube? <a href="integrations.html" style="color:var(--studio-cyan);font-weight:600;">Read how our integrations work &rarr;</a>
+      </p>
     </section>
 
     <!-- SECTION 4: FULL STUDIO PRODUCTION SUITE (ALL 7 SERVICES) -->
@@ -1912,6 +1919,8 @@
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy (YouTube &amp; Pinterest Compliant)</a>
         <a href="terms.html">Terms of Service &amp; License</a>
+        <a href="integrations.html">Pinterest &amp; YouTube Integrations</a>
+        <a href="about.html">About &amp; Contact</a>
         <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener">Etsy Digital Store</a>
         <a href="https://www.fiverr.com/s/GPz71VL" target="_blank" rel="noopener">Fiverr Retouching</a>
         <a href="http://www.fiverr.com/s/emmRYZm" target="_blank" rel="noopener">Fiverr Video Reels</a>
