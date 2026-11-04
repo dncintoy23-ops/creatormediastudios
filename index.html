@@ -2033,6 +2033,9 @@
       }
     }
 
+    // Set to the real Beehiiv hosted subscribe URL ending in /create (e.g. https://<your-publication>.beehiiv.com/create).
+    const BEEHIIV_CREATE_URL = '';
+
     async function handleSubscribe(e) {
       e.preventDefault();
       const email = document.getElementById("userEmail").value.trim();
@@ -2041,16 +2044,23 @@
       const publications = getSelectedPubs();
       if (!email || publications.length === 0) return;
 
+      const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
+      if (!BEEHIIV_CREATE_URL && !isLocal) {
+        document.getElementById("selectionCountNotice").innerHTML =
+          `<span style="color:#f72585;">Signups are opening shortly. Email digitalcreatorassets@gmail.com to be added now.</span>`;
+        return;
+      }
+
       const submitBtn = document.getElementById("submitBtn");
       submitBtn.disabled = true;
       submitBtn.innerText = "Subscribing...";
 
       // 1. Real form POST to the Beehiiv hosted subscribe endpoint, opened in a new tab so
       // the reader sees Beehiiv's own confirmation (a silent no-cors fetch hid failures).
-      try {
+      if (BEEHIIV_CREATE_URL) try {
         const f = document.createElement('form');
         f.method = 'POST';
-        f.action = 'https://careys-newsletter-8f1cc1.beehiiv.com/create';
+        f.action = BEEHIIV_CREATE_URL;
         f.target = '_blank';
         f.style.display = 'none';
         const fields = {
@@ -2072,7 +2082,7 @@
       } catch (e) {}
 
       // 2. Also sync to the local WORKHORSE dispatcher, only when running on the local dashboard
-      if (['localhost', '127.0.0.1'].includes(location.hostname)) {
+      if (isLocal) {
         try {
           await fetch("/api/newsletter/subscribe", {
             method: "POST",
