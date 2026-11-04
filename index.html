@@ -1566,6 +1566,7 @@
               <input type="email" id="userEmail" class="input-field" placeholder="you@domain.com" required>
             </div>
 
+            <input type="text" id="hpWebsite" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
             <label class="instant-welcome-optin">
               <input type="checkbox" id="sendWelcomeCheck" checked>
               <span>⚡ <strong>Send me today's Day 1 masterclass editions + Free Sample Film LUT</strong> immediately</span>
@@ -1945,63 +1946,40 @@
       }
     }
 
-    // Set to the real Beehiiv hosted subscribe URL ending in /create (e.g. https://<your-publication>.beehiiv.com/create).
-    const BEEHIIV_CREATE_URL = '';
+    // Public signup gateway (forwards to the WORKHORSE newsletter roster)
+    const SIGNUP_URL = 'https://careypphoto-ai.taile1557e.ts.net:8443/subscribe';
 
     async function handleSubscribe(e) {
       e.preventDefault();
       const email = document.getElementById("userEmail").value.trim();
       const name = document.getElementById("userName").value.trim();
-      const sendWelcome = document.getElementById("sendWelcomeCheck").checked;
       const publications = getSelectedPubs();
+      const honeypot = (document.getElementById("hpWebsite") || {}).value || "";
       if (!email || publications.length === 0) return;
 
-      const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
-      if (!BEEHIIV_CREATE_URL && !isLocal) {
-        document.getElementById("selectionCountNotice").innerHTML =
-          `<span style="color:#f72585;">Signups are opening shortly. Email digitalcreatorassets@gmail.com to be added now.</span>`;
-        return;
-      }
-
       const submitBtn = document.getElementById("submitBtn");
+      const notice = document.getElementById("selectionCountNotice");
       submitBtn.disabled = true;
       submitBtn.innerText = "Subscribing...";
 
-      // 1. Real form POST to the Beehiiv hosted subscribe endpoint, opened in a new tab so
-      // the reader sees Beehiiv's own confirmation (a silent no-cors fetch hid failures).
-      if (BEEHIIV_CREATE_URL) try {
-        const f = document.createElement('form');
-        f.method = 'POST';
-        f.action = BEEHIIV_CREATE_URL;
-        f.target = '_blank';
-        f.style.display = 'none';
-        const fields = {
-          email: email,
-          double_opt: 'false',
-          auto_login_enabled: 'true',
-          sent_from_orchid: 'true',
-          utm_source: 'creatormediastudios.com',
-          utm_medium: 'pulse_optin'
-        };
-        Object.entries(fields).forEach(([k, v]) => {
-          const i = document.createElement('input');
-          i.type = 'hidden'; i.name = k; i.value = v;
-          f.appendChild(i);
+      let ok = false;
+      let message = "Something went wrong. Please email digitalcreatorassets@gmail.com to be added.";
+      try {
+        const res = await fetch(SIGNUP_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, name, publications, website: honeypot })
         });
-        document.body.appendChild(f);
-        f.submit();
-        f.remove();
-      } catch (e) {}
+        const data = await res.json().catch(() => ({}));
+        ok = res.ok && data.ok;
+        if (!ok && data.error) message = data.error;
+      } catch (err) {}
 
-      // 2. Also sync to the local WORKHORSE dispatcher, only when running on the local dashboard
-      if (isLocal) {
-        try {
-          await fetch("/api/newsletter/subscribe", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, name, publications, send_welcome: sendWelcome, source: "creatormediastudios.com" })
-          });
-        } catch (err) {}
+      if (!ok) {
+        notice.innerHTML = `<span style="color:#f72585;">${message}</span>`;
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Subscribe Free to Selected Briefings \u2192";
+        return;
       }
 
       document.getElementById("formView").style.display = "none";
