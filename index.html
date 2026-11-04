@@ -2045,30 +2045,42 @@
       submitBtn.disabled = true;
       submitBtn.innerText = "Subscribing...";
 
-      // 1. Direct submit to Beehiiv publication (pub_70adcb89-d55d-45ea-b976-28ddd1f37921)
+      // 1. Real form POST to the Beehiiv hosted subscribe endpoint, opened in a new tab so
+      // the reader sees Beehiiv's own confirmation (a silent no-cors fetch hid failures).
       try {
-        fetch('https://subscribe.beehiiv.com/subscribe', {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams({
-            publication_id: 'pub_70adcb89-d55d-45ea-b976-28ddd1f37921',
-            email: email,
-            name: name,
-            utm_source: 'creatormediastudios.com',
-            utm_medium: 'pulse_optin'
-          })
+        const f = document.createElement('form');
+        f.method = 'POST';
+        f.action = 'https://careys-newsletter-8f1cc1.beehiiv.com/create';
+        f.target = '_blank';
+        f.style.display = 'none';
+        const fields = {
+          email: email,
+          double_opt: 'false',
+          auto_login_enabled: 'true',
+          sent_from_orchid: 'true',
+          utm_source: 'creatormediastudios.com',
+          utm_medium: 'pulse_optin'
+        };
+        Object.entries(fields).forEach(([k, v]) => {
+          const i = document.createElement('input');
+          i.type = 'hidden'; i.name = k; i.value = v;
+          f.appendChild(i);
         });
+        document.body.appendChild(f);
+        f.submit();
+        f.remove();
       } catch (e) {}
 
-      // 2. Also sync to local WORKHORSE dispatcher if active
-      try {
-        await fetch("/api/newsletter/subscribe", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, name, publications, send_welcome: sendWelcome, source: "creatormediastudios.com" })
-        });
-      } catch (err) {}
+      // 2. Also sync to the local WORKHORSE dispatcher, only when running on the local dashboard
+      if (['localhost', '127.0.0.1'].includes(location.hostname)) {
+        try {
+          await fetch("/api/newsletter/subscribe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, name, publications, send_welcome: sendWelcome, source: "creatormediastudios.com" })
+          });
+        } catch (err) {}
+      }
 
       document.getElementById("formView").style.display = "none";
       document.getElementById("confirmedEmail").innerText = email;
