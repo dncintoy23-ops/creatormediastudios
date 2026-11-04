@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Creator Media Assets • DaVinci 3D LUTs, Lightroom Presets & Lighting Cards</title>
+  <meta name="description" content="Shop official Creator Media Assets by Creator Media Studios. Professional DaVinci Resolve 3D .CUBE LUTs, Lightroom .XMP film presets, 50-card lighting director decks, and commercial contract packs on Etsy.">
+  <link rel="canonical" href="https://creatormediastudios.com/assets.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070b14;
+      --card-bg: #0d1527;
+      --border-color: rgba(255, 255, 255, 0.1);
+      --studio-cyan: #00f2fe;
+      --cobalt: #4f7cff;
+      --deals-green: #10b981;
+      --pulse-magenta: #f72585;
+      --text-white: #f8fafc;
+      --text-sub: #cbd5e1;
+      --text-muted: #94a3b8;
+      --radius-xl: 20px;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: -200px;
+      left: 10%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.12) 0%, rgba(79, 124, 255, 0.08) 50%, transparent 70%);
+      filter: blur(95px);
+      pointer-events: none;
+    }
+
+    header.site-header {
+      background: rgba(7, 11, 20, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .brand-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--cobalt), var(--studio-cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      color: #070b14;
+    }
+    .brand-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover { background: rgba(255, 255, 255, 0.15); }
+    .nav-btn.primary {
+      background: linear-gradient(135deg, var(--cobalt), var(--studio-cyan));
+      color: #070b14;
+      border: none;
+    }
+
+    .catalog-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .catalog-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 48px;
+    }
+    .catalog-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(0, 242, 254, 0.1);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      color: var(--studio-cyan);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(32px, 4.2vw, 48px);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.6px;
+      margin-bottom: 16px;
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #fff 0%, var(--studio-cyan) 60%, #eab308 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .catalog-lead {
+      font-size: 16px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    /* Product Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 242, 254, 0.4);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 242, 254, 0.12);
+    }
+    .product-card.featured {
+      border-color: var(--studio-cyan);
+      background: linear-gradient(145deg, #0d1527 0%, #101c38 100%);
+      box-shadow: 0 12px 36px rgba(0, 242, 254, 0.2);
+    }
+    .product-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--studio-cyan);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .product-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .product-card p {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .product-specs {
+      list-style: none;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .product-specs li {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .product-specs li::before {
+      content: "✓";
+      color: var(--deals-green);
+      font-weight: 900;
+    }
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-color);
+    }
+    .price-tag {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    /* Technical Specs Table */
+    .specs-card {
+      background: #0d1527;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      margin-bottom: 50px;
+    }
+    .specs-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 18px;
+      color: #fff;
+    }
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .specs-table th {
+      text-align: left;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--studio-cyan);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .specs-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--text-sub);
+    }
+    .specs-table td strong { color: #fff; }
+
+    /* Cross-promo banner for Creator Pulse Lab */
+    .pulse-banner-box {
+      background: linear-gradient(135deg, rgba(247, 37, 133, 0.15), rgba(79, 124, 255, 0.15));
+      border: 1.5px solid rgba(247, 37, 133, 0.4);
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .pulse-banner-box h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .pulse-banner-box p {
+      font-size: 14px;
+      color: var(--text-sub);
+      max-width: 600px;
+    }
+
+    footer.site-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    footer a { color: var(--text-sub); text-decoration: none; margin: 0 10px; }
+    footer a:hover { color: var(--studio-cyan); }
+
+    @media (max-width: 960px) {
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.svg" alt="Creator Media Studios" style="width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,242,254,0.3); flex-shrink: 0;">
+        <div>
+          <div class="brand-title">Creator Media Assets</div>
+          <div class="brand-sub">CreatorMediaStudios.com</div>
+        </div></a>
+      <div style="display:flex;gap:12px;">
+        <a href="index.html" class="nav-btn">← Main Studio</a>
+        <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn primary">🛒 Open Etsy Store &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="catalog-container">
+    <div class="catalog-header">
+      <div class="catalog-tag">🎨 DIGITAL CREATOR ASSETS &bull; COLOR SCIENCE</div>
+      <h1>Cinema-Grade <span class="text-gradient">DaVinci 3D LUTs &amp; Film Presets</span></h1>
+      <p class="catalog-lead">
+        Engineered for filmmakers, editorial photographers, and high-retention video creators. Instant digital delivery with 100% royalty-free commercial licensing on Etsy.
+      </p>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="products-grid">
+      <!-- Product 1: Hero Master Suite -->
+      <div class="product-card featured">
+        <div>
+          <div class="product-badge">Hero Production Suite &bull; Best Value</div>
+          <h3>Master Studio Color, Posing &amp; Release Suite</h3>
+          <p>The complete studio collection combining our 5 signature Lightroom film presets, 50 portrait lighting flashcards, commercial model contracts, and social video templates.</p>
+          <ul class="product-specs">
+            <li>5 Desktop <code>.XMP</code> + Mobile <code>.DNG</code> Presets</li>
+            <li>50 Posing &amp; 3-Point Lighting Cue Cards (PDF)</li>
+            <li>Commercial Model &amp; Location Release Forms</li>
+            <li>Social Media Video &amp; Story Promo Templates</li>
+            <li>Commercial Royalty-Free License</li>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <span class="price-tag">$39.99</span>
+          <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn primary">Buy on Etsy &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Product 2: DaVinci 3D LUTs -->
+      <div class="product-card">
+        <div>
+          <div class="product-badge">DaVinci Resolve &bull; Premiere &bull; FCP</div>
+          <h3>Cinematic 3D LUT Pack (33x33x33 Lattice)</h3>
+          <p>Engineered for organic skin tone roll-off, rich analog warmth, and deep shadows. Calibrated for Rec.709, Sony S-Log3, Canon C-Log, and iPhone ProRes Log.</p>
+          <ul class="product-specs">
+            <li>01 Studio Warm Obsidian (Natural Skin Tones)</li>
+            <li>02 Golden Hour Glow (Sunset Warmth)</li>
+            <li>03 Cyber Neon Teal/Orange (Modern Cinema)</li>
+            <li>04 35mm Analog Film Noir (Monochrome)</li>
+            <li>Standard <code>.CUBE</code> format for all editors</li>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <span class="price-tag">$19.99</span>
+          <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn">Buy on Etsy &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Product 3: 50 Lighting & Posing Cards -->
+      <div class="product-card">
+        <div>
+          <div class="product-badge">Studio Director Deck</div>
+          <h3>50 Portrait Posing &amp; Lighting Angle Cards</h3>
+          <p>Illustrated studio flashcards and mobile lookbook detailing key light angles, softbox positions, rim ratios, camera focal lengths, and model director prompts.</p>
+          <ul class="product-specs">
+            <li>5 Studio Sections &bull; 50 Illustrated Setups</li>
+            <li>Exact Key, Rim &amp; Fill Lighting Schematics</li>
+            <li>Camera Focal Length &amp; Aperture Notes</li>
+            <li>Printable Flashcard Deck + Mobile PDF</li>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <span class="price-tag">$14.99</span>
+          <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn">Buy on Etsy &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Product 4: Lightroom Film Emulation -->
+      <div class="product-card">
+        <div>
+          <div class="product-badge">Lightroom Desktop &bull; Mobile &bull; ACR</div>
+          <h3>Signature 35mm Analog Film Presets</h3>
+          <p>Nostalgic analog film emulation inspired by Portra 400 and CineStill 800T. Tames harsh digital highlights and brings organic texture to portraits and street photography.</p>
+          <ul class="product-specs">
+            <li>5 Custom Tone Curves (.XMP &amp; .DNG)</li>
+            <li>Gentle Halation &amp; Film Grain Emulation</li>
+            <li>1-Click Mobile Lightroom Compatibility</li>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <span class="price-tag">$12.99</span>
+          <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn">Buy on Etsy &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Product 5: Short-Form Video Hooks Pack -->
+      <div class="product-card">
+        <div>
+          <div class="product-badge">YouTube Shorts &bull; TikTok &bull; Reels</div>
+          <h3>Cinematic Video Reels &amp; Hook Formulas</h3>
+          <p>High-retention 9:16 vertical video templates, visual hook cards, and animated subtitle pacing guidelines tested for maximum 3-second viewer retention.</p>
+          <ul class="product-specs">
+            <li>20 Visual Hook Video Starters</li>
+            <li>High-Retention Audio &amp; Subtitle Pacing</li>
+            <li>Ready for DaVinci Resolve &amp; CapCut</li>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <span class="price-tag">$16.99</span>
+          <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn">Buy on Etsy &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Product 6: Legal Contract Pack -->
+      <div class="product-card">
+        <div>
+          <div class="product-badge">Studio Protection &bull; Contracts</div>
+          <h3>Model &amp; Location Release Contract Pack</h3>
+          <p>Legally drafted standard commercial release agreements for photographers, videographers, and creators. Protect your intellectual property before publishing.</p>
+          <ul class="product-specs">
+            <li>Standard Adult &amp; Minor Model Releases</li>
+            <li>Commercial Location Property Agreement</li>
+            <li>Fillable PDF &amp; Editable Word (.DOCX)</li>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <span class="price-tag">$9.99</span>
+          <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn">Buy on Etsy &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Compatibility Table -->
+    <div class="specs-card">
+      <h3>⚡ Technical Compatibility &amp; Specifications</h3>
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th>Asset Category</th>
+            <th>File Formats</th>
+            <th>Compatible Software</th>
+            <th>License Scope</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>DaVinci 3D LUTs</strong></td>
+            <td><code>.CUBE</code> (33x33x33 3D Matrix)</td>
+            <td>DaVinci Resolve (Studio/Free), Premiere Pro, Final Cut, CapCut, OBS</td>
+            <td>Commercial &bull; Royalty-Free Unlimited</td>
+          </tr>
+          <tr>
+            <td><strong>Lightroom Film Presets</strong></td>
+            <td><code>.XMP</code> and <code>.DNG</code></td>
+            <td>Lightroom Classic, Lightroom CC, Lightroom Mobile, Photoshop ACR</td>
+            <td>Commercial &bull; Personal &bull; Client Work</td>
+          </tr>
+          <tr>
+            <td><strong>Lighting Cue Cards</strong></td>
+            <td>Vector PDF (Mobile + Print 300DPI)</td>
+            <td>Any PDF Reader, iPad, iPhone, Android, or Physical Card Print</td>
+            <td>Lifetime Studio Reference</td>
+          </tr>
+          <tr>
+            <td><strong>Video Hook Templates</strong></td>
+            <td>9:16 Vertical 4K &amp; HD Assets</td>
+            <td>DaVinci Resolve, After Effects, CapCut, Premiere Pro</td>
+            <td>Social Media Monetization Allowed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Cross Promo Banner for Creator Pulse Lab -->
+    <div class="pulse-banner-box">
+      <div>
+        <span style="color:var(--pulse-magenta);font-family:'JetBrains Mono';font-size:11px;font-weight:800;letter-spacing:1px;">FREE WEEKLY DROPS FOR SUBSCRIBERS</span>
+        <h3>Want Sample LUTs &amp; Daily Intelligence Free?</h3>
+        <p>Join <strong>Creator Pulse Lab</strong>. Every morning at 9:00 AM EST, we deliver breaking algorithm analysis and free sample toolkits to your inbox.</p>
+      </div>
+      <a href="pulse.html" class="nav-btn" style="background:var(--pulse-magenta);border:none;padding:12px 24px;">
+        ✨ Join Creator Pulse Lab Free &rarr;
+      </a>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      <a href="index.html">Main Studio</a>
+      <a href="pulse.html">Creator Pulse Lab</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; License</a>
+      <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener">Etsy Digital Store</a>
+    </p>
+    <p style="margin-top:12px;">
+      &copy; 2026 <strong>Creator Media Studios</strong> &bull; Creator Media Assets. All Rights Reserved.
+    </p>
+  </footer>
+
+</body>
+</html>

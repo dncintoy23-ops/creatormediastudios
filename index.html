@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Creator Media Studios &bull; Color Science Presets, 3D LUTs, Retouching &amp; Daily Studio Briefings</title>
-  <meta name="description" content="Official website of Creator Media Studios (Creatormediastudios.com & CreatorMediaLab). Professional Lightroom .XMP film presets, DaVinci Resolve 3D LUTs, editorial retouching, 3D product visualization, and free daily photography & creator briefings.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Creator Media Studios • Cinema Color Science, Digital Assets & Creator Pulse Lab</title>
+  <meta name="description" content="Official home of Creator Media Studios (Creatormediastudios.com). Download cinema-grade DaVinci Resolve 3D LUTs, Lightroom film presets, studio lighting cue decks, and join Creator Pulse Lab for free daily creator monetization intelligence.">
   <link rel="canonical" href="https://creatormediastudios.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-dark: #070b14;
@@ -16,11 +16,14 @@
       --card-bg: #0d1527;
       --card-hover: #131f3a;
       --border-color: rgba(255, 255, 255, 0.09);
+      --border-glow: rgba(0, 242, 254, 0.35);
       --studio-cyan: #00f2fe;
       --cobalt: #4f7cff;
       --blueprint-gold: #eab308;
       --pulse-magenta: #f72585;
       --deals-green: #10b981;
+      --yt-red: #ff0033;
+      --pinterest-red: #e60023;
       --text-white: #f8fafc;
       --text-sub: #cbd5e1;
       --text-muted: #94a3b8;
@@ -39,31 +42,73 @@
       overflow-x: hidden;
       position: relative;
     }
+
+    /* Ambient Cyber Glow Backgrounds */
     body::before {
       content: "";
       position: fixed;
-      top: -220px;
-      left: 15%;
-      width: 650px;
-      height: 650px;
-      background: radial-gradient(circle, rgba(79, 124, 255, 0.14) 0%, rgba(0, 242, 254, 0.08) 50%, transparent 70%);
-      filter: blur(85px);
+      top: -240px;
+      left: 10%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(79, 124, 255, 0.16) 0%, rgba(0, 242, 254, 0.08) 50%, transparent 70%);
+      filter: blur(95px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      bottom: -200px;
+      right: 5%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(247, 37, 133, 0.12) 0%, rgba(0, 242, 254, 0.05) 50%, transparent 70%);
+      filter: blur(100px);
       pointer-events: none;
       z-index: 0;
     }
 
-    /* Sticky Header */
+    /* Top Announcement Bar */
+    .top-announcement {
+      background: linear-gradient(90deg, #0b1120, #131d36, #0b1120);
+      border-bottom: 1px solid var(--border-color);
+      padding: 7px 16px;
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--text-sub);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 101;
+    }
+    .top-announcement a {
+      color: var(--studio-cyan);
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .top-announcement a:hover { text-decoration: underline; }
+
+    /* Sticky Navigation Header */
     header.site-header {
-      background: rgba(7, 11, 20, 0.88);
-      backdrop-filter: blur(14px);
+      background: rgba(7, 11, 20, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-color);
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 16px 24px;
+      padding: 14px 24px;
+      transition: all 0.2s ease;
     }
     .header-inner {
-      max-width: 1220px;
+      max-width: 1240px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -81,31 +126,33 @@
     .brand-badge {
       width: 42px;
       height: 42px;
-      border-radius: 11px;
+      border-radius: 12px;
       background: linear-gradient(135deg, var(--cobalt), var(--studio-cyan));
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Outfit', sans-serif;
       font-weight: 900;
-      font-size: 21px;
+      font-size: 22px;
       color: #070b14;
-      box-shadow: 0 4px 16px rgba(0, 242, 254, 0.28);
+      box-shadow: 0 4px 18px rgba(0, 242, 254, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
     .brand-info strong {
       display: block;
       font-family: 'Outfit', sans-serif;
-      font-size: 20px;
-      font-weight: 800;
+      font-size: 19px;
+      font-weight: 900;
       letter-spacing: -0.3px;
       line-height: 1.1;
     }
     .brand-info span {
-      font-size: 12px;
+      font-size: 11.5px;
       color: var(--text-muted);
       display: flex;
       align-items: center;
       gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
     }
     .status-dot {
       width: 7px;
@@ -115,6 +162,7 @@
       display: inline-block;
       box-shadow: 0 0 8px var(--deals-green);
     }
+
     .header-links {
       display: flex;
       align-items: center;
@@ -124,26 +172,27 @@
     .header-links a.nav-link {
       text-decoration: none;
       color: var(--text-sub);
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 13.5px;
+      font-weight: 700;
       transition: color 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
-    .header-links a.nav-link:hover {
-      color: var(--studio-cyan);
-    }
+    .header-links a.nav-link:hover { color: var(--studio-cyan); }
     .nav-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 9px 18px;
       border-radius: 999px;
-      font-size: 13.5px;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 800;
       text-decoration: none;
       color: var(--text-white);
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--border-color);
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .nav-btn:hover {
       background: rgba(255, 255, 255, 0.12);
@@ -153,24 +202,32 @@
       background: linear-gradient(135deg, var(--cobalt), var(--studio-cyan));
       color: #070b14;
       border: none;
-      font-weight: 800;
       box-shadow: 0 4px 16px rgba(0, 242, 254, 0.25);
+    }
+    .nav-btn.primary:hover {
+      box-shadow: 0 6px 22px rgba(0, 242, 254, 0.45);
+    }
+    .nav-btn.pulse-btn {
+      background: linear-gradient(135deg, #7928ca, var(--pulse-magenta));
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 16px rgba(247, 37, 133, 0.35);
     }
 
     .container {
-      max-width: 1220px;
+      max-width: 1240px;
       margin: 0 auto;
       padding: 0 24px;
       position: relative;
       z-index: 1;
     }
 
-    /* Hero Section */
+    /* HERO SECTION */
     .hero {
-      padding: 54px 0 42px;
+      padding: 56px 0 44px;
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 36px;
+      gap: 40px;
       align-items: center;
     }
     .eyebrow {
@@ -180,39 +237,51 @@
       padding: 6px 14px;
       border-radius: 999px;
       background: rgba(0, 242, 254, 0.1);
-      border: 1px solid rgba(0, 242, 254, 0.28);
+      border: 1px solid rgba(0, 242, 254, 0.3);
       color: var(--studio-cyan);
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 11.5px;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.7px;
-      margin-bottom: 18px;
+      letter-spacing: 0.8px;
+      margin-bottom: 20px;
+      font-family: 'JetBrains Mono', monospace;
     }
     .hero h1 {
       font-family: 'Outfit', sans-serif;
-      font-size: clamp(32px, 4.2vw, 50px);
+      font-size: clamp(32px, 4.4vw, 54px);
       font-weight: 900;
       line-height: 1.1;
       letter-spacing: -0.8px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
     .text-gradient {
       background: linear-gradient(90deg, #fff 0%, var(--studio-cyan) 55%, var(--blueprint-gold) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .text-gradient-pulse {
+      background: linear-gradient(90deg, #fff 0%, var(--pulse-magenta) 60%, var(--studio-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
     .hero p.lead {
       font-size: 16.5px;
       color: var(--text-sub);
-      margin-bottom: 26px;
-      max-width: 620px;
+      margin-bottom: 28px;
+      max-width: 630px;
+      line-height: 1.65;
     }
     .hero-cta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 28px;
+      gap: 14px;
+      margin-bottom: 32px;
     }
+    .hero-cta-row .nav-btn {
+      padding: 14px 26px;
+      font-size: 15px;
+    }
+
     .metrics-bar {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -220,30 +289,37 @@
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
-      padding: 16px 18px;
+      padding: 16px 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     }
     .metric-item strong {
       display: block;
       font-family: 'Outfit', sans-serif;
-      font-size: 20px;
+      font-size: 21px;
       color: var(--studio-cyan);
+      font-weight: 900;
     }
     .metric-item span {
-      font-size: 12px;
+      font-size: 11.5px;
       color: var(--text-muted);
+      font-weight: 600;
     }
+
+    /* Hero Visual Card & Live Showcase */
     .hero-visual-card {
       background: var(--card-bg);
-      border: 1px solid var(--border-color);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: var(--radius-xl);
       padding: 18px;
-      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 242, 254, 0.05);
+      position: relative;
     }
     .hero-visual-card img.main-banner {
       width: 100%;
       border-radius: 12px;
       margin-bottom: 12px;
       display: block;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .hero-sub-grid {
       display: grid;
@@ -252,42 +328,185 @@
     }
     .hero-sub-grid img {
       width: 100%;
-      aspect-ratio: 16 / 10;
+      height: 135px;
       object-fit: cover;
       border-radius: 10px;
       border: 1px solid var(--border-color);
+      transition: transform 0.2s ease;
     }
+    .hero-sub-grid img:hover { transform: scale(1.02); }
 
-    /* Section Headings */
+    /* SECTION SYSTEM */
     .section-block {
-      padding: 44px 0;
+      padding: 56px 0;
       border-top: 1px solid var(--border-color);
+      position: relative;
     }
     .section-head {
       display: flex;
-      align-items: flex-end;
       justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 36px;
       flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 28px;
     }
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+    }
+    .section-tag.cyan { color: var(--studio-cyan); border-color: rgba(0, 242, 254, 0.3); background: rgba(0, 242, 254, 0.08); }
+    .section-tag.magenta { color: var(--pulse-magenta); border-color: rgba(247, 37, 133, 0.35); background: rgba(247, 37, 133, 0.08); }
+    .section-tag.gold { color: var(--blueprint-gold); border-color: rgba(234, 179, 8, 0.35); background: rgba(234, 179, 8, 0.08); }
+    .section-tag.social { color: #fff; border-color: rgba(255, 255, 255, 0.25); background: rgba(255, 255, 255, 0.08); }
+
     .section-head h2 {
       font-family: 'Outfit', sans-serif;
-      font-size: clamp(26px, 3vw, 34px);
-      font-weight: 800;
-      color: var(--text-white);
+      font-size: clamp(26px, 3.2vw, 36px);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
     }
     .section-head p {
-      color: var(--text-muted);
       font-size: 15px;
-      margin-top: 4px;
+      color: var(--text-sub);
+      max-width: 680px;
     }
 
-    /* Digital Store Grid */
+    /* INTERACTIVE BEFORE/AFTER SLIDER SHOWCASE */
+    .compare-container {
+      background: var(--card-bg);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      margin-bottom: 40px;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.5);
+    }
+    .compare-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .compare-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .compare-box {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      user-select: none;
+      touch-action: pan-y;
+      background: #000;
+    }
+    .compare-img-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+    .compare-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 50%;
+      overflow: hidden;
+      border-right: 2.5px solid var(--studio-cyan);
+      box-shadow: 2px 0 16px rgba(0, 242, 254, 0.6);
+    }
+    .compare-overlay .compare-img-layer {
+      width: 100%;
+      min-width: 100%;
+      object-fit: cover;
+    }
+    .compare-slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 5;
+      margin: 0;
+    }
+    .compare-badge {
+      position: absolute;
+      bottom: 14px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      z-index: 3;
+      backdrop-filter: blur(8px);
+    }
+    .compare-badge.left {
+      left: 14px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .compare-badge.right {
+      right: 14px;
+      background: rgba(0, 242, 254, 0.2);
+      color: var(--studio-cyan);
+      border: 1px solid var(--studio-cyan);
+      box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+    }
+    .compare-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--studio-cyan);
+      color: #070b14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 900;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.85);
+      pointer-events: none;
+      z-index: 4;
+      transition: transform 0.1s ease;
+    }
+
+    /* DIGITAL PRODUCTS & STORE GRID */
     .store-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 24px;
     }
     .store-card {
       background: var(--card-bg);
@@ -296,61 +515,226 @@
       padding: 24px;
       display: flex;
       flex-direction: column;
-      transition: transform 0.2s, border-color 0.2s;
+      justify-content: space-between;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
     }
     .store-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       border-color: rgba(0, 242, 254, 0.4);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 254, 0.12);
+    }
+    .store-card.featured {
+      border-color: var(--studio-cyan);
+      background: linear-gradient(145deg, #0d1527 0%, #101c38 100%);
+      box-shadow: 0 12px 36px rgba(0, 242, 254, 0.18);
     }
     .store-tag {
-      align-self: flex-start;
-      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
       font-weight: 800;
+      color: var(--studio-cyan);
       text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(79, 124, 255, 0.14);
-      color: #93b4ff;
-      margin-bottom: 14px;
+      letter-spacing: 0.8px;
+      margin-bottom: 12px;
+      display: inline-block;
     }
     .store-card h3 {
       font-family: 'Outfit', sans-serif;
-      font-size: 19px;
-      color: var(--text-white);
-      margin-bottom: 8px;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      color: #fff;
     }
     .store-card p {
-      font-size: 13.8px;
+      font-size: 14px;
       color: var(--text-sub);
       margin-bottom: 16px;
-      flex: 1;
+      line-height: 1.55;
     }
     .store-card ul {
-      padding-left: 18px;
+      list-style: none;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .store-card li {
       font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 18px;
-    }
-    .store-card li { margin-bottom: 5px; }
-    .store-footer {
       display: flex;
       align-items: center;
+      gap: 8px;
+    }
+    .store-card li::before {
+      content: "✓";
+      color: var(--deals-green);
+      font-weight: 900;
+    }
+    .store-footer {
+      display: flex;
       justify-content: space-between;
-      padding-top: 14px;
+      align-items: center;
+      padding-top: 16px;
       border-top: 1px solid var(--border-color);
     }
     .store-price {
       font-family: 'Outfit', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--studio-cyan);
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
     }
 
-    /* Services Grid */
+    /* CREATOR PULSE LAB HERO FEATURE */
+    .pulse-lab-feature {
+      background: linear-gradient(135deg, rgba(20, 25, 45, 0.95), rgba(35, 15, 45, 0.85));
+      border: 1.5px solid rgba(247, 37, 133, 0.4);
+      border-radius: var(--radius-xl);
+      padding: 36px 40px;
+      margin-bottom: 36px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 25px rgba(247, 37, 133, 0.15);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .pulse-lab-feature h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(26px, 3.4vw, 36px);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+    .pulse-lab-feature p {
+      font-size: 15.5px;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .pulse-perks-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .pulse-perk-item {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pulse-perk-item strong { color: #fff; }
+    .pulse-preview-card {
+      background: #090e1c;
+      border: 1px solid rgba(247, 37, 133, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    }
+    .pulse-badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(247, 37, 133, 0.15);
+      border: 1px solid var(--pulse-magenta);
+      color: var(--pulse-magenta);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    /* YOUTUBE & PINTEREST PROMO HUB */
+    .social-hub-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 32px;
+    }
+    .social-hub-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+    .social-hub-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+    .social-hub-card.yt:hover { border-color: rgba(255, 0, 51, 0.5); }
+    .social-hub-card.pinterest:hover { border-color: rgba(230, 0, 35, 0.5); }
+    
+    .social-card-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .social-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .social-icon-box.yt { background: rgba(255, 0, 51, 0.15); color: var(--yt-red); border: 1px solid rgba(255, 0, 51, 0.35); }
+    .social-icon-box.pin { background: rgba(230, 0, 35, 0.15); color: var(--pinterest-red); border: 1px solid rgba(230, 0, 35, 0.35); }
+    .social-title-box h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .social-title-box span {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .social-hub-card p {
+      font-size: 14.5px;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .social-perks {
+      list-style: none;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .social-perks li {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .social-perks li strong { color: #fff; }
+
+    /* SERVICES GRID (Fiverr) */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 24px;
     }
     .service-card {
       background: var(--card-bg);
@@ -359,116 +743,105 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      transition: all 0.25s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 242, 254, 0.35);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
     }
     .service-card img {
       width: 100%;
-      aspect-ratio: 16 / 10;
+      height: 180px;
       object-fit: cover;
       border-bottom: 1px solid var(--border-color);
     }
     .service-body {
-      padding: 22px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       flex: 1;
     }
     .service-body h3 {
       font-family: 'Outfit', sans-serif;
-      font-size: 19px;
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
       margin-bottom: 8px;
     }
     .service-body p {
-      font-size: 13.8px;
+      font-size: 13.5px;
       color: var(--text-sub);
-      margin-bottom: 18px;
-      flex: 1;
+      margin-bottom: 16px;
+      line-height: 1.5;
     }
 
-    /* Publications / Daily Briefings */
-    #targetAlert {
-      display: none;
-      max-width: 680px;
-      margin: 0 auto 24px;
-      padding: 12px 20px;
-      border-radius: var(--radius-md);
-      background: rgba(0, 242, 254, 0.08);
-      border: 1px solid rgba(0, 242, 254, 0.3);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      text-align: center;
-    }
-    #targetAlert.active { display: block; }
-
+    /* PUBLICATIONS LIST & SIGNUP FORM */
     .publications-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }
     .pub-card {
       background: var(--card-bg);
-      border: 2px solid var(--border-color);
+      border: 1.5px solid var(--border-color);
       border-radius: var(--radius-lg);
-      padding: 24px;
-      transition: all 0.22s ease;
+      padding: 20px;
       cursor: pointer;
-      display: flex;
-      flex-direction: column;
+      transition: all 0.2s ease;
+      position: relative;
     }
     .pub-card:hover {
-      background: var(--card-hover);
-      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.25);
     }
     .pub-card.selected {
       border-color: var(--studio-cyan);
-      background: linear-gradient(180deg, rgba(0, 242, 254, 0.06) 0%, var(--card-bg) 100%);
+      background: rgba(0, 242, 254, 0.04);
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.2);
     }
-    .pub-card.private-invite {
-      display: none;
-    }
-    .pub-card.private-invite.revealed {
-      display: flex;
+    .pub-card.selected[data-pub="creator_pulse"] {
+      border-color: var(--pulse-magenta);
+      background: rgba(247, 37, 133, 0.05);
+      box-shadow: 0 0 16px rgba(247, 37, 133, 0.25);
     }
     .card-top {
       display: flex;
-      align-items: flex-start;
       justify-content: space-between;
-      gap: 12px;
+      align-items: center;
       margin-bottom: 12px;
     }
     .pub-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
       font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid;
     }
     .checkbox-wrap {
-      width: 24px;
-      height: 24px;
-      border-radius: 7px;
-      border: 2px solid var(--text-muted);
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 1.5px solid var(--text-muted);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0, 0, 0, 0.3);
+      transition: all 0.15s ease;
     }
     .pub-card.selected .checkbox-wrap {
       background: var(--studio-cyan);
       border-color: var(--studio-cyan);
-      color: #070b14;
+    }
+    .pub-card.selected[data-pub="creator_pulse"] .checkbox-wrap {
+      background: var(--pulse-magenta);
+      border-color: var(--pulse-magenta);
     }
     .checkbox-wrap svg {
-      width: 15px;
-      height: 15px;
-      stroke: currentColor;
+      width: 14px;
+      height: 14px;
+      stroke: #070b14;
       stroke-width: 3;
       fill: none;
       opacity: 0;
@@ -476,27 +849,28 @@
     .pub-card.selected .checkbox-wrap svg { opacity: 1; }
     .pub-name {
       font-family: 'Outfit', sans-serif;
-      font-size: 21px;
+      font-size: 18px;
       font-weight: 800;
+      color: #fff;
       margin-bottom: 4px;
     }
     .pub-audience {
-      font-size: 12.5px;
-      font-weight: 700;
-      color: var(--studio-cyan);
+      font-size: 12px;
+      color: var(--text-muted);
       margin-bottom: 12px;
     }
     .pub-highlights {
       list-style: none;
-      margin-bottom: 18px;
-      flex-grow: 1;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
     .pub-highlights li {
-      font-size: 13.5px;
+      font-size: 12.5px;
       color: var(--text-sub);
-      margin-bottom: 7px;
-      padding-left: 18px;
       position: relative;
+      padding-left: 14px;
     }
     .pub-highlights li::before {
       content: "▹";
@@ -508,24 +882,26 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-top: 14px;
+      padding-top: 12px;
       border-top: 1px solid var(--border-color);
-      font-size: 12.5px;
+      font-size: 12px;
       color: var(--text-muted);
     }
     .btn-preview {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       color: var(--text-white);
-      padding: 6px 12px;
+      padding: 5px 12px;
       border-radius: 6px;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 700;
       cursor: pointer;
+      transition: all 0.2s ease;
     }
     .btn-preview:hover {
-      background: rgba(0, 242, 254, 0.15);
+      background: rgba(0, 242, 254, 0.2);
       border-color: var(--studio-cyan);
+      color: #fff;
     }
 
     /* Signup Form Card */
@@ -536,7 +912,7 @@
       padding: 36px;
       max-width: 680px;
       margin: 0 auto 36px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
     }
     .form-title {
       font-family: 'Outfit', sans-serif;
@@ -569,6 +945,7 @@
       font-size: 15px;
       font-family: inherit;
       outline: none;
+      transition: border-color 0.2s;
     }
     .input-field:focus { border-color: var(--studio-cyan); }
     .instant-welcome-optin {
@@ -594,6 +971,12 @@
       font-size: 16.5px;
       font-weight: 800;
       cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 242, 254, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn-submit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 25px rgba(0, 242, 254, 0.5);
     }
     .form-guarantee {
       display: flex;
@@ -605,29 +988,13 @@
       color: var(--text-muted);
     }
     .success-panel { display: none; text-align: center; padding: 16px 0; }
-    .unsub-link {
-      color: var(--text-muted);
-      text-decoration: underline;
-      cursor: pointer;
-      font-size: 13px;
-    }
-    .unsub-section {
-      max-width: 540px;
-      margin: 16px auto 0;
-      padding: 20px;
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border-color);
-      display: none;
-    }
-    .unsub-section.open { display: block; }
 
     /* Modal Preview */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(4, 7, 13, 0.85);
-      backdrop-filter: blur(8px);
+      background: rgba(4, 7, 13, 0.88);
+      backdrop-filter: blur(10px);
       z-index: 999;
       display: none;
       align-items: center;
@@ -640,11 +1007,12 @@
       max-width: 920px;
       height: 88vh;
       background: #0d1527;
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: var(--radius-lg);
       display: flex;
       flex-direction: column;
       overflow: hidden;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85);
     }
     .modal-header {
       padding: 14px 20px;
@@ -672,55 +1040,67 @@
     }
     .preview-iframe { width: 100%; height: 100%; border: none; }
 
-    /* Footer */
+    /* FOOTER */
     footer.site-footer {
       border-top: 1px solid var(--border-color);
-      padding: 42px 0 56px;
-      margin-top: 32px;
+      padding: 48px 0 60px;
+      margin-top: 40px;
       color: var(--text-muted);
       font-size: 13.5px;
+      background: rgba(5, 8, 16, 0.95);
     }
     .footer-links {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 22px;
       flex-wrap: wrap;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
     .footer-links a {
       color: var(--text-sub);
       text-decoration: none;
       font-weight: 600;
+      transition: color 0.15s;
     }
     .footer-links a:hover { color: var(--studio-cyan); }
 
-    @media (max-width: 920px) {
-      .hero, .store-grid, .services-grid, .publications-grid {
-        grid-template-columns: 1fr;
-      }
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
       .metrics-bar { grid-template-columns: repeat(2, 1fr); }
+      .store-grid, .services-grid, .publications-grid { grid-template-columns: 1fr; }
+      .social-hub-grid { grid-template-columns: 1fr; }
+      .pulse-lab-feature { grid-template-columns: 1fr; padding: 24px; }
+      .pulse-perks-list { grid-template-columns: 1fr; }
     }
   </style>
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 </head>
 <body>
 
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement">
+    <span>⚡ <strong>NEW RELEASE:</strong> 2026 Master Studio 3D LUT & Lightroom Film Preset Suite is live on Etsy</span>
+    <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener">Browse Etsy Digital Store &rarr;</a>
+  </div>
+
+  <!-- STICKY SITE HEADER -->
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="brand-logo">
-        <div class="brand-badge">C</div>
+        <img src="assets/logo.svg" alt="Creator Media Studios Logo" style="width: 44px; height: 44px; border-radius: 11px; box-shadow: 0 4px 18px rgba(0,242,254,0.35); flex-shrink: 0;">
         <div class="brand-info">
           <strong>Creator Media Studios</strong>
           <span><i class="status-dot"></i> Creatormediastudios.com &bull; CreatorMediaLab</span>
         </div>
       </a>
       <div class="header-links">
-        <a href="#store" class="nav-link">Presets &amp; 3D LUTs</a>
-        <a href="#services" class="nav-link">Studio Services</a>
-        <a href="#briefings" class="nav-link">Daily Briefings</a>
-        <a href="terms.html" class="nav-link">Terms of Service</a>
-        <a href="privacy.html" class="nav-link">Privacy Policy</a>
+        <a href="#assets" class="nav-link">🎨 Creator Media Assets</a>
+        <a href="#pulse" class="nav-link">✨ Creator Pulse Lab</a>
+        <a href="#social-hub" class="nav-link">📺 YouTube &amp; Pinterest</a>
+        <a href="#services" class="nav-link">🛠️ Studio Services</a>
         <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn primary">
-          &#128717; Etsy Digital Store &rarr;
+          🛒 Etsy Digital Store &rarr;
         </a>
       </div>
     </div>
@@ -732,36 +1112,36 @@
     <section class="hero">
       <div>
         <div class="eyebrow">
-          <span>&#9889; Official Studio &bull; Creatormediastudios.com</span>
+          <span>⚡ Official Studio &bull; Creatormediastudios.com</span>
         </div>
-        <h1>Cinema-Grade <span class="text-gradient">Color Science, 3D Visuals</span> &amp; Creator Briefings.</h1>
+        <h1>Cinema-Grade <span class="text-gradient">Color Science, 3D LUTs</span> &amp; Daily Creator Intelligence.</h1>
         <p class="lead">
-          Creator Media Studios (CreatorMediaLab) engineers professional Lightroom <code>.XMP</code> film emulation presets, DaVinci Resolve 3D <code>.CUBE</code> LUTs, studio portrait lighting schematics, custom editorial retouching, and free daily briefings for photographers and digital media builders.
+          Creator Media Studios is the dual-engine creative production hub uniting <strong>Creator Media Assets</strong> (professional DaVinci Resolve 3D LUTs, Lightroom film presets, 50-card lighting decks) and <strong>Creator Pulse Lab</strong> (daily intelligence briefings on AI video pipelines, algorithm shifts &amp; creator monetization).
         </p>
         <div class="hero-cta-row">
-          <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn primary" style="padding: 13px 24px; font-size: 15px;">
-            &#128717; Browse Presets &amp; Toolkits on Etsy &rarr;
+          <a href="#assets" class="nav-btn primary">
+            🎨 Explore Creator Media Assets &rarr;
           </a>
-          <a href="#briefings" class="nav-btn" style="padding: 13px 22px; font-size: 15px;">
-            &#128240; Join Free Daily Studio Briefings
+          <a href="#pulse" class="nav-btn pulse-btn">
+            ✨ Join Creator Pulse Lab Free
           </a>
         </div>
         <div class="metrics-bar">
-          <div class="metric-item">
-            <strong>.XMP &amp; .DNG</strong>
-            <span>Desktop &amp; Mobile Presets</span>
-          </div>
           <div class="metric-item">
             <strong>3D .CUBE</strong>
             <span>DaVinci Resolve LUTs</span>
           </div>
           <div class="metric-item">
-            <strong>50+ Cards</strong>
-            <span>Lighting &amp; Posing Decks</span>
+            <strong>.XMP &amp; .DNG</strong>
+            <span>Desktop &amp; Mobile Presets</span>
           </div>
           <div class="metric-item">
-            <strong>Daily</strong>
-            <span>Free Studio Briefings</span>
+            <strong>50+ Setups</strong>
+            <span>Lighting &amp; Director Decks</span>
+          </div>
+          <div class="metric-item">
+            <strong>9:00 AM EST</strong>
+            <span>Daily Creator Pulse Briefing</span>
           </div>
         </div>
       </div>
@@ -775,127 +1155,252 @@
       </div>
     </section>
 
-    <!-- SECTION 1: DIGITAL PRODUCTS & COLOR SCIENCE STORE -->
-    <section class="section-block" id="store">
+    <!-- SECTION 1: CREATOR MEDIA ASSETS (THE STORE & SHOWCASE) -->
+    <section class="section-block" id="assets">
       <div class="section-head">
         <div>
-          <h2>Digital Color Science &amp; Studio Toolkits</h2>
-          <p>Instant-download Lightroom presets, 3D LUTs, studio lighting flashcards, and production templates on Etsy.</p>
+          <span class="section-tag cyan">🎨 Creator Media Assets &bull; Digital Store</span>
+          <h2>Professional Color Science &amp; Studio Toolkits</h2>
+          <p>Instant-download DaVinci Resolve 3D LUTs, Lightroom film presets, studio lighting director flashcards, and commercial creator templates on Etsy.</p>
         </div>
         <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn primary">
-          View All on Etsy &rarr;
+          View Full Catalog on Etsy &rarr;
         </a>
       </div>
 
+      <!-- Interactive Before / After Comparison Slider -->
+      <div class="compare-container">
+        <div class="compare-header">
+          <div class="compare-title">
+            <span>✨ Live Color Science Comparison</span>
+          </div>
+          <span style="font-size:12.5px;color:var(--text-muted);font-family:'JetBrains Mono',monospace;">Drag slider to preview DaVinci 3D LUT Color Grade</span>
+        </div>
+        <div class="compare-box" id="compareBox">
+          <!-- Background: After Image (Graded) -->
+          <img src="assets/service_color_grading.jpg" alt="Graded with Creator Media Assets" class="compare-img-layer">
+          <!-- Foreground Overlay: Before Image (Raw / Ungraded) -->
+          <div class="compare-overlay" id="compareOverlay">
+            <img src="assets/service_retouching.jpg" alt="Raw Ungraded Footage" class="compare-img-layer" id="compareBeforeImg">
+          </div>
+          <input type="range" min="0" max="100" value="50" class="compare-slider" id="compareSlider" aria-label="Before and after color comparison">
+          <div class="compare-handle" id="compareHandle">↔</div>
+          <span class="compare-badge left">RAW LOG / UNGRADED</span>
+          <span class="compare-badge right">CREATOR MEDIA ASSETS (3D LUT)</span>
+        </div>
+      </div>
+
+      <!-- Full 8-Toolkit Digital Products Grid -->
       <div class="store-grid">
-        <div class="store-card">
-          <span class="store-tag">Hero Suite &bull; All-In-One</span>
+        <!-- 1: Master Suite -->
+        <div class="store-card featured">
+          <span class="store-tag">Hero Suite &bull; Complete Bundle</span>
           <h3>Master Studio Color, Posing &amp; Release Suite</h3>
-          <p>Complete studio production bundle combining our 5 signature Lightroom presets, 50 posing &amp; lighting flashcards, commercial release templates, and social promo layouts.</p>
+          <p>The ultimate production suite combining our 5 signature Lightroom film presets, 50 portrait lighting cue cards, commercial release contracts, and social promo templates.</p>
           <ul>
             <li>5 Desktop <code>.XMP</code> + Mobile <code>.DNG</code> Presets</li>
-            <li>50 Posing &amp; Lighting Director Cue Cards (PDF)</li>
+            <li>50 Posing &amp; 3-Point Lighting Cue Cards (PDF)</li>
             <li>Commercial Model &amp; Location Release Forms</li>
+            <li>100% Commercial Royalty-Free License</li>
           </ul>
           <div class="store-footer">
             <span class="store-price">$39.99</span>
-            <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn primary">Get on Etsy &rarr;</a>
+            <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn primary">Buy on Etsy &rarr;</a>
           </div>
         </div>
 
+        <!-- 2: DaVinci 3D LUTs -->
         <div class="store-card">
-          <span class="store-tag">Lightroom &amp; Camera Raw</span>
-          <h3>5 Film Emulation &amp; Studio Portrait Presets</h3>
-          <p>Engineered for natural skin tone roll-off, rich shadow depth, and nostalgic 35mm analog film warmth across Lightroom Desktop and Mobile.</p>
+          <span class="store-tag">DaVinci Resolve &bull; Premiere &bull; FCP</span>
+          <h3>Cinematic 3D LUT Pack (33x33x33 Lattice)</h3>
+          <p>Engineered for smooth highlight roll-off, rich analog warmth, and cinematic shadow tonality. Perfect for Rec.709, Sony S-Log3, Canon C-Log, and iPhone ProRes Log.</p>
           <ul>
-            <li>01 Moody Studio &bull; 02 Golden Hour Glow</li>
-            <li>03 Cyber Neon &bull; 04 Monochrome Noir</li>
-            <li>05 Vintage 35mm Analog Film Grain</li>
+            <li>01 Studio Warm Obsidian &bull; 02 Golden Hour Glow</li>
+            <li>03 Cyber Neon Teal/Orange &bull; 04 35mm Analog Noir</li>
+            <li>Instant <code>.CUBE</code> formats for all video editors</li>
           </ul>
           <div class="store-footer">
-            <span class="store-price">$12.99</span>
-            <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn">Get on Etsy &rarr;</a>
+            <span class="store-price">$19.99</span>
+            <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn">Buy on Etsy &rarr;</a>
           </div>
         </div>
 
+        <!-- 3: 50 Lighting Cards -->
         <div class="store-card">
-          <span class="store-tag">Studio Direction Deck</span>
+          <span class="store-tag">Studio Director Deck</span>
           <h3>50 Portrait Posing &amp; Lighting Angle Cards</h3>
-          <p>Mobile-ready PDF lookbook and printable studio flashcards with exact camera focal lengths, key-light angles, and director prompts.</p>
+          <p>Illustrated studio flashcards and mobile lookbook detailing key light angles, softbox positions, rim ratios, camera focal lengths, and model director prompts.</p>
           <ul>
             <li>5 Studio Sections &bull; 50 Illustrated Setups</li>
-            <li>Key, Rim &amp; Softbox Lighting Notes</li>
-            <li>Instant Mobile &amp; Printable PDF Deck</li>
+            <li>Exact Key, Rim &amp; Fill Lighting Ratios</li>
+            <li>Printable Flashcards + Mobile Pocket Guide</li>
           </ul>
           <div class="store-footer">
             <span class="store-price">$14.99</span>
-            <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn">Get on Etsy &rarr;</a>
+            <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn">Buy on Etsy &rarr;</a>
+          </div>
+        </div>
+
+        <!-- 4: Film Emulation Presets -->
+        <div class="store-card">
+          <span class="store-tag">Lightroom Desktop &bull; Mobile &bull; ACR</span>
+          <h3>Signature 35mm Analog Film Presets</h3>
+          <p>Nostalgic analog film emulation inspired by Portra 400 and CineStill 800T. Tames harsh digital highlights and brings organic texture to portraits and street photography.</p>
+          <ul>
+            <li>5 Custom Tone Curves (.XMP &amp; .DNG)</li>
+            <li>Gentle Halation &amp; Film Grain Emulation</li>
+            <li>1-Click Mobile Lightroom Compatibility</li>
+          </ul>
+          <div class="store-footer">
+            <span class="store-price">$12.99</span>
+            <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn">Buy on Etsy &rarr;</a>
+          </div>
+        </div>
+
+        <!-- 5: Short-Form Video Reels Pack -->
+        <div class="store-card">
+          <span class="store-tag">YouTube Shorts &bull; TikTok &bull; Reels</span>
+          <h3>Cinematic Video Reels &amp; Hook Formulas</h3>
+          <p>High-retention 9:16 vertical video templates, visual hook cards, and animated subtitle pacing guidelines tested for maximum 3-second viewer retention.</p>
+          <ul>
+            <li>20 Visual Hook Video Starters</li>
+            <li>High-Retention Audio &amp; Subtitle Pacing</li>
+            <li>Ready for DaVinci Resolve &amp; CapCut</li>
+          </ul>
+          <div class="store-footer">
+            <span class="store-price">$16.99</span>
+            <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn">Buy on Etsy &rarr;</a>
+          </div>
+        </div>
+
+        <!-- 6: Commercial Release Contracts -->
+        <div class="store-card">
+          <span class="store-tag">Studio Protection &bull; Legal Contracts</span>
+          <h3>Model &amp; Location Release Contract Pack</h3>
+          <p>Legally drafted standard commercial release agreements for photographers, videographers, and creators. Protect your intellectual property before publishing.</p>
+          <ul>
+            <li>Standard Adult &amp; Minor Model Releases</li>
+            <li>Commercial Location Property Agreement</li>
+            <li>Fillable PDF &amp; Editable Word (.DOCX)</li>
+          </ul>
+          <div class="store-footer">
+            <span class="store-price">$9.99</span>
+            <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn">Buy on Etsy &rarr;</a>
+          </div>
+        </div>
+
+        <!-- 7: Photography Prompt Bible -->
+        <div class="store-card">
+          <span class="store-tag">AI Photography &bull; Lighting Prompt Bible</span>
+          <h3>Studio Photography AI Prompt Bible (150+)</h3>
+          <p>Precision photographic prompts calibrated with exact 35mm focal lengths, studio strobe ratios, aperture values, and skin texture parameters for Midjourney, Flux, and ComfyUI.</p>
+          <ul>
+            <li>150+ Cinematic Studio Lighting Prompts</li>
+            <li>Lens Ratios (35mm, 50mm, 85mm f/1.4)</li>
+            <li>Commercial Fashion, Boudoir &amp; Cyber Aesthetics</li>
+          </ul>
+          <div class="store-footer">
+            <span class="store-price">$14.99</span>
+            <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn">Buy on Etsy &rarr;</a>
+          </div>
+        </div>
+
+        <!-- 8: Maker Studio STL & Laser SVGs (CraftyMyia) -->
+        <div class="store-card" style="border-color:rgba(16,185,129,0.35);">
+          <span class="store-tag" style="color:var(--deals-green);">3D PRINTABLE STL &bull; LASER SVG</span>
+          <h3>CraftyMyia Maker Studio Collection</h3>
+          <p>Watertight manifold 3D-printable .STL models (geometric planters, desk organizers, cookie cutters) and layered SVG cut files for laser cutters, Cricut, and 3D printers.</p>
+          <ul>
+            <li>Manifold Watertight .STL, .3MF &amp; .GLB Models</li>
+            <li>Clean Layered SVG Cut Files for Glowforge &amp; Cricut</li>
+            <li>Instant Etsy Download &amp; Commercial Maker License</li>
+          </ul>
+          <div class="store-footer">
+            <span class="store-price">From $3.99</span>
+            <a href="https://craftymyia.com" target="_blank" rel="noopener" class="nav-btn" style="border-color:var(--deals-green);color:var(--deals-green);">Explore CraftyMyia &rarr;</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 2: CUSTOM STUDIO SERVICES -->
-    <section class="section-block" id="services">
+    <!-- SECTION 2: CREATOR PULSE LAB (THE INTELLIGENCE & BRIEFINGS DIVISION) -->
+    <section class="section-block" id="pulse">
       <div class="section-head">
         <div>
-          <h2>Custom Studio Production &amp; Retouching Services</h2>
-          <p>Commission our production studio directly on Fiverr for editorial photo retouching, color grading, and video reels.</p>
+          <span class="section-tag magenta">✨ Creator Pulse Lab &bull; Daily Intelligence</span>
+          <h2>The Daily Creator Pulse — Free Morning Briefing</h2>
+          <p>Dispatched every morning at 9:00 AM EST. Real-time intelligence on algorithm shifts, local AI video pipelines, digital asset monetization, and camera gear breakdowns.</p>
         </div>
       </div>
 
-      <div class="services-grid">
-        <div class="service-card">
-          <img src="assets/service_retouching.jpg" alt="Editorial Portrait Retouching & Relighting">
-          <div class="service-body">
-            <h3>Editorial Photo Retouching &amp; Studio Relighting</h3>
-            <p>High-frequency skin texture preservation, studio color grading, background cleanup, and 3-point relighting for photographers and creators.</p>
-            <a href="https://www.fiverr.com/s/GPz71VL" target="_blank" rel="noopener" class="nav-btn primary" style="justify-content:center;">
-              &#127912; Book Retouching on Fiverr &rarr;
-            </a>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <img src="assets/service_video_reels.jpg" alt="Short-Form Video Reels & Motion Graphics">
-          <div class="service-body">
-            <h3>Cinematic Video Reels &amp; Color-Graded Shorts</h3>
-            <p>Scroll-stopping 9:16 vertical reels, 4K color grading in DaVinci Resolve, animated captions, and high-retention visual hooks for YouTube Shorts, Reels &amp; TikTok.</p>
-            <a href="http://www.fiverr.com/s/emmRYZm" target="_blank" rel="noopener" class="nav-btn primary" style="justify-content:center;">
-              &#127916; Book Video Reels on Fiverr &rarr;
-            </a>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <img src="assets/service_color_grading.jpg" alt="Channel Branding & Custom Graphics">
-          <div class="service-body">
-            <h3>Custom Creator Channel Branding &amp; Layouts</h3>
-            <p>Bespoke channel headers, social media promo flyers, pricing menus, and cohesive visual identity systems tailored to your brand aesthetic.</p>
-            <a href="http://www.fiverr.com/s/GPPxKB3" target="_blank" rel="noopener" class="nav-btn primary" style="justify-content:center;">
-              &#10024; Book Branding on Fiverr &rarr;
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3: FREE DAILY STUDIO BRIEFINGS -->
-    <section class="section-block" id="briefings">
-      <div class="section-head">
+      <!-- Creator Pulse Lab Feature Card -->
+      <div class="pulse-lab-feature">
         <div>
-          <h2>Free Daily Studio &amp; Creator Briefings</h2>
-          <p>Select your daily briefings below, preview live issues, and get our Day 1 masterclass editions dispatched immediately.</p>
+          <span class="pulse-badge-live">⚡ DISPATCHED DAILY AT 9:00 AM EST</span>
+          <h3>Master the Modern Creator Economy Without Guesswork.</h3>
+          <p>
+            Creator Pulse Lab is our editorial intelligence hub. Whether you are building digital products on Etsy, grading 60fps reels on DaVinci Resolve, or scaling your YouTube and Pinterest audience, we break down what works in 5 minutes every morning.
+          </p>
+          <div class="pulse-perks-list">
+            <div class="pulse-perk-item">
+              <span>📡</span>
+              <div><strong>Algorithm Radar:</strong> YouTube Shorts, IG Reels &amp; Pinterest trends</div>
+            </div>
+            <div class="pulse-perk-item">
+              <span>🤖</span>
+              <div><strong>AI Studio Workflows:</strong> Local GPU nodes, ComfyUI &amp; Ollama</div>
+            </div>
+            <div class="pulse-perk-item">
+              <span>💰</span>
+              <div><strong>Digital Asset Sales:</strong> Proven blueprints for Etsy &amp; Gumroad</div>
+            </div>
+            <div class="pulse-perk-item">
+              <span>🎁</span>
+              <div><strong>Free Asset Drops:</strong> Weekly sample LUTs &amp; lighting PDFs</div>
+            </div>
+          </div>
+          <button type="button" class="btn-preview" onclick="openPreview('creator_pulse', event)" style="padding: 10px 18px; font-size: 13.5px;">
+            👁️ Read Real Sample Issue (#042) &rarr;
+          </button>
+        </div>
+
+        <div class="pulse-preview-card">
+          <div style="font-size:36px;margin-bottom:8px;">💋</div>
+          <h4 style="font-family:'Outfit';font-size:18px;color:#fff;margin-bottom:4px;">The Daily Creator Pulse</h4>
+          <span style="font-size:12px;color:var(--pulse-magenta);font-weight:700;font-family:'JetBrains Mono';">ISSUE #042 PREVIEW READY</span>
+          <p style="font-size:13px;color:var(--text-sub);margin:12px 0 16px;">
+            Inside today's drop: Why tight face-framing crops are beating full-body feeds on recommendation algorithms, plus 3-point soft glamour lighting schematics.
+          </p>
+          <a href="#subscribeForm" class="nav-btn pulse-btn" style="width:100%;justify-content:center;">
+            ⚡ Join Creator Pulse Lab Free
+          </a>
         </div>
       </div>
 
-      <div id="targetAlert">
-        <span id="targetAlertText">You're invited to subscribe below!</span>
-      </div>
-
+      <!-- Multiple Briefings Selection Cards -->
       <div class="publications-grid" id="publicationsGrid">
+        <!-- Card 1: Creator Pulse (Hero) -->
+        <div class="pub-card selected" data-pub="creator_pulse" onclick="toggleCard(this)">
+          <div class="card-top">
+            <span class="pub-badge" style="color: #f72585; border-color: rgba(247,37,133,0.35);">9:00 AM EST &bull; FLAGSHIP</span>
+            <div class="checkbox-wrap">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+          </div>
+          <h3 class="pub-name">✨ The Daily Creator Pulse</h3>
+          <div class="pub-audience">Content Creators, Videographers &amp; Digital Entrepreneurs</div>
+          <ul class="pub-highlights">
+            <li><strong>Algorithm Watch:</strong> High-engagement portrait framing &amp; Shorts reach tactics.</li>
+            <li><strong>Monetization:</strong> Curiosity-gap messaging &amp; digital product conversion.</li>
+            <li><strong>Lighting Notes:</strong> Soft glamour 3-point studio schematics.</li>
+          </ul>
+          <div class="card-footer-action">
+            <span>Creator Economy Architecture</span>
+            <button type="button" class="btn-preview" onclick="openPreview('creator_pulse', event)">👁️ Preview</button>
+          </div>
+        </div>
 
-        <!-- Card 1: The Shutter & Studio Wire (Mainstream SFW Default) -->
+        <!-- Card 2: The Shutter & Studio Wire -->
         <div class="pub-card selected" data-pub="studio_wire" onclick="toggleCard(this)">
           <div class="card-top">
             <span class="pub-badge" style="color: #00f2fe; border-color: rgba(0,242,254,0.3);">8:30 AM EST &bull; PRO STUDIO</span>
@@ -903,101 +1408,51 @@
               <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
           </div>
-          <h3 class="pub-name">&#128248; The Shutter &amp; Studio Wire</h3>
-          <div class="pub-audience">Portrait Photographers, Retouchers, Colorists &amp; Studios</div>
+          <h3 class="pub-name">📸 The Shutter &amp; Studio Wire</h3>
+          <div class="pub-audience">Photographers, Colorists &amp; Retouchers</div>
           <ul class="pub-highlights">
-            <li><strong>Color Science Radar:</strong> Taming digital highlights &amp; 35mm analog film roll-off.</li>
-            <li><strong>Film Masterclass:</strong> Portra 400 Lightroom tone curves &amp; DaVinci Resolve LUT recipes.</li>
-            <li><strong>Visual Studio Diagram:</strong> 45&deg; Key &amp; Rim lighting schematic with 3D breakdown.</li>
+            <li><strong>Color Science Radar:</strong> Taming digital highlights &amp; analog film curves.</li>
+            <li><strong>LUT Recipes:</strong> DaVinci Resolve node trees &amp; Lightroom .XMP formulas.</li>
+            <li><strong>Lighting Diagrams:</strong> 45° Key &amp; Rim studio setups.</li>
           </ul>
           <div class="card-footer-action">
             <span>Color Science &amp; Lighting</span>
-            <button type="button" class="btn-preview" onclick="openPreview('studio_wire', event)">
-              &#128065; Preview Issue
-            </button>
+            <button type="button" class="btn-preview" onclick="openPreview('studio_wire', event)">👁️ Preview</button>
           </div>
         </div>
 
-        <!-- Card 2: The Creator Blueprint (Mainstream SFW Default) -->
-        <div class="pub-card selected" data-pub="creator_blueprint" onclick="toggleCard(this)">
+        <!-- Card 3: The Creator Blueprint -->
+        <div class="pub-card" data-pub="creator_blueprint" onclick="toggleCard(this)">
           <div class="card-top">
-            <span class="pub-badge" style="color: #eab308; border-color: rgba(234,179,8,0.3);">10:00 AM EST &bull; FLYWHEEL</span>
+            <span class="pub-badge" style="color: #eab308; border-color: rgba(234,179,8,0.3);">10:00 AM EST &bull; ASSET FLYWHEEL</span>
             <div class="checkbox-wrap">
               <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
           </div>
-          <h3 class="pub-name">&#9889; The Creator Blueprint</h3>
-          <div class="pub-audience">Digital Creators, YouTubers, Freelancers &amp; Media Builders</div>
+          <h3 class="pub-name">⚡ The Creator Blueprint</h3>
+          <div class="pub-audience">Media Builders, Freelancers &amp; Shop Owners</div>
           <ul class="pub-highlights">
-            <li><strong>Digital Asset Shifts:</strong> Why micro-downloads &amp; presets outperform long courses.</li>
-            <li><strong>The $0 to $5K Flywheel:</strong> Validating services on Fiverr &rarr; Productizing on Etsy &rarr; Scaling on YouTube &amp; Pinterest.</li>
-            <li><strong>Viral Hook Formulas:</strong> High-retention short-form video &amp; pin templates.</li>
+            <li><strong>Asset Shifts:</strong> Micro-downloads vs. long courses.</li>
+            <li><strong>Flywheel:</strong> Fiverr validation &rarr; Etsy digital scale &rarr; YouTube audience.</li>
+            <li><strong>Hook Formulas:</strong> High-retention short-form video templates.</li>
           </ul>
           <div class="card-footer-action">
-            <span>Creator Economy Architecture</span>
-            <button type="button" class="btn-preview" onclick="openPreview('creator_blueprint', event)">
-              &#128065; Preview Issue
-            </button>
+            <span>Digital Business Architecture</span>
+            <button type="button" class="btn-preview" onclick="openPreview('creator_blueprint', event)">👁️ Preview</button>
           </div>
         </div>
-
-        <!-- Private Invite Card 3: Creator Pulse (Shown only when invited via ?pub=creator_pulse) -->
-        <div class="pub-card private-invite" data-pub="creator_pulse" onclick="toggleCard(this)">
-          <div class="card-top">
-            <span class="pub-badge" style="color: #f72585; border-color: rgba(247,37,133,0.3);">9:00 AM EST &bull; DIRECT INVITE</span>
-            <div class="checkbox-wrap">
-              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-          </div>
-          <h3 class="pub-name">&#10024; The Daily Creator Pulse</h3>
-          <div class="pub-audience">Subscription Creators &amp; Glamour Studios</div>
-          <ul class="pub-highlights">
-            <li><strong>Algorithm Radar:</strong> High-engagement portrait framing &amp; social reach strategies.</li>
-            <li><strong>Conversion Playbooks:</strong> Curiosity-gap messaging &amp; subscriber retention formulas.</li>
-            <li><strong>Studio Lighting:</strong> Soft glamour 3-point lighting schematics.</li>
-          </ul>
-          <div class="card-footer-action">
-            <span>Creator Monetization Playbook</span>
-            <button type="button" class="btn-preview" onclick="openPreview('creator_pulse', event)">
-              &#128065; Preview Issue
-            </button>
-          </div>
-        </div>
-
-        <!-- Private Invite Card 4: Dispensary Deals (Shown only when invited via ?pub=dispensary_deals) -->
-        <div class="pub-card private-invite" data-pub="dispensary_deals" onclick="toggleCard(this)">
-          <div class="card-top">
-            <span class="pub-badge" style="color: #10b981; border-color: rgba(16,185,129,0.3);">7:00 AM EST &bull; PRIVATE INVITE</span>
-            <div class="checkbox-wrap">
-              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-          </div>
-          <h3 class="pub-name">&#127807; Florida Dispensary Deals</h3>
-          <div class="pub-audience">Private Patient Daily Deal Digest</div>
-          <ul class="pub-highlights">
-            <li><strong>Morning Drops:</strong> Verified daily discounts &amp; clearance watch tables.</li>
-            <li><strong>Patient Briefing:</strong> Daily inventory &amp; regional deal summaries.</li>
-          </ul>
-          <div class="card-footer-action">
-            <span>Private Patient Digest</span>
-            <button type="button" class="btn-preview" onclick="openPreview('dispensary_deals', event)">
-              &#128065; Preview Issue
-            </button>
-          </div>
-        </div>
-
       </div>
 
-      <!-- SIGNUP FORM -->
+      <!-- FREE SIGNUP FORM -->
       <div class="form-card">
         <div id="formView">
-          <h3 class="form-title">Join The Free Daily Studio Briefing</h3>
+          <h3 class="form-title">Join Creator Pulse Lab Free</h3>
           <p class="form-sub" id="selectionCountNotice">2 publications selected. Dispatched daily.</p>
 
           <form id="subscribeForm" onsubmit="handleSubscribe(event)">
             <div class="form-group">
               <label class="form-label" for="userName">First Name / Studio Handle <span style="font-weight:normal;color:#64748b;">(Optional)</span></label>
-              <input type="text" id="userName" class="input-field" placeholder="e.g. Alex or @alexstudio">
+              <input type="text" id="userName" class="input-field" placeholder="e.g. Carey or @creatorstudio">
             </div>
 
             <div class="form-group">
@@ -1007,7 +1462,7 @@
 
             <label class="instant-welcome-optin">
               <input type="checkbox" id="sendWelcomeCheck" checked>
-              <span>&#9889; <strong>Send me today's Day 1 masterclass editions immediately</strong> upon joining</span>
+              <span>⚡ <strong>Send me today's Day 1 masterclass editions + Free Sample Film LUT</strong> immediately</span>
             </label>
 
             <button type="submit" id="submitBtn" class="btn-submit">
@@ -1015,56 +1470,296 @@
             </button>
 
             <div class="form-guarantee">
-              <span>&#128274; Zero Spam Guarantee</span>
-              <span>&#9889; 100% Free Daily Value</span>
-              <span>&#10003; Instant 1-Click Unsubscribe</span>
+              <span>🔒 Zero Spam Guarantee</span>
+              <span>⚡ 100% Free Daily Value</span>
+              <span>✓ Instant 1-Click Unsubscribe</span>
             </div>
           </form>
         </div>
 
         <div id="successView" class="success-panel">
-          <h3 style="font-family:'Outfit';font-size:24px;color:var(--deals-green);margin-bottom:10px;">&#10003; You're Enrolled!</h3>
+          <h3 style="font-family:'Outfit';font-size:24px;color:var(--deals-green);margin-bottom:10px;">✓ You're Enrolled in Creator Pulse Lab!</h3>
           <p style="font-size:15px;color:var(--text-sub);margin-bottom:18px;">
-            We've added <strong><span id="confirmedEmail">your email</span></strong> to your selected daily briefings.
+            We've dispatched your welcome package and added <strong><span id="confirmedEmail">your email</span></strong> to your daily briefings.
           </p>
           <div id="confirmedList" style="margin-bottom:20px;"></div>
-          <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener" class="nav-btn primary">
-            &#128717; Explore Presets on Etsy &rarr;
+          <a href="#assets" class="nav-btn primary">
+            🎨 Browse Creator Media Assets &rarr;
           </a>
         </div>
       </div>
+    </section>
 
-      <!-- UNSUBSCRIBE DRAWER -->
-      <div style="text-align: center; margin-bottom: 20px;">
-        <span class="unsub-link" onclick="document.getElementById('unsubSection').classList.toggle('open')">
-          Need to manage existing subscriptions or unsubscribe? Click here
-        </span>
-        <div id="unsubSection" class="unsub-section">
-          <h4 style="font-family:'Outfit';font-size:16px;margin-bottom:8px;color:#fff;">Manage Subscriptions / Unsubscribe</h4>
-          <p style="font-size:13px;color:#94a3b8;margin-bottom:14px;">Enter your email to unsubscribe from all briefings immediately.</p>
-          <div style="display:flex;gap:10px;">
-            <input type="email" id="unsubEmail" class="input-field" placeholder="your@email.com" style="flex:1;">
-            <button type="button" class="nav-btn" onclick="executeUnsubscribe('all')" style="cursor:pointer;">Unsubscribe</button>
-          </div>
-          <div id="unsubResult" style="font-size:12.5px;margin-top:10px;"></div>
+    <!-- SECTION 3: YOUTUBE & PINTEREST PROMO HUB -->
+    <section class="section-block" id="social-hub">
+      <div class="section-head">
+        <div>
+          <span class="section-tag social">📺 YouTube &bull; 📌 Pinterest &bull; Content Flywheel</span>
+          <h2>Connect With Creator Media Studios Everywhere</h2>
+          <p>We produce free video masterclasses, color grading walkthroughs, and studio lighting infographics across our visual channels.</p>
         </div>
+      </div>
+
+      <div class="social-hub-grid">
+        <!-- YouTube Channel Card -->
+        <div class="social-hub-card yt">
+          <div>
+            <div class="social-card-top">
+              <div class="social-icon-box yt">▶</div>
+              <div class="social-title-box">
+                <h3>Creator Media Studios</h3>
+                <span>YOUTUBE CHANNEL &bull; COLOR SCIENCE &bull; SHORTS</span>
+              </div>
+            </div>
+            <p>
+              Watch our color science in action. We share follow-along DaVinci Resolve grading sessions, studio lighting tours, and punchy 30-second Shorts showing before &amp; after transformations.
+            </p>
+            <ul class="social-perks">
+              <li><strong>Free LUT Walkthroughs:</strong> See exact node trees before you download.</li>
+              <li><strong>Lighting Setups:</strong> Real studio behind-the-scenes on a budget.</li>
+              <li><strong>Shorts Micro-Hacks:</strong> Pacing and hook formulas for creators.</li>
+            </ul>
+          </div>
+          <div>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener" class="nav-btn" style="width:100%;justify-content:center;background:rgba(255,0,51,0.15);border-color:var(--yt-red);color:#fff;">
+              ▶️ Subscribe on YouTube &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Pinterest Boards Card -->
+        <div class="social-hub-card pinterest">
+          <div>
+            <div class="social-card-top">
+              <div class="social-icon-box pin">📌</div>
+              <div class="social-title-box">
+                <h3>Creator Media Studios</h3>
+                <span>PINTEREST &bull; VISUAL BOARDS &bull; CHEAT SHEETS</span>
+              </div>
+            </div>
+            <p>
+              Your visual inspiration library. Save our 3-point lighting diagrams, camera focal length guides, 50-card portrait posing references, and aesthetic color palettes directly to your creative boards.
+            </p>
+            <ul class="social-perks">
+              <li><strong>Lighting Infographics:</strong> Saveable schematics for solo creators.</li>
+              <li><strong>Posing Cheatsheets:</strong> Editorial angles and cue prompts.</li>
+              <li><strong>Before / After Pins:</strong> Film emulation palettes and swatches.</li>
+            </ul>
+          </div>
+          <div>
+            <a href="https://www.pinterest.com" target="_blank" rel="noopener" class="nav-btn" style="width:100%;justify-content:center;background:rgba(230,0,35,0.15);border-color:var(--pinterest-red);color:#fff;">
+              📌 Follow on Pinterest &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FULL STUDIO PRODUCTION SUITE (ALL 7 SERVICES) -->
+    <section class="section-block" id="services">
+      <div class="section-head">
+        <div>
+          <span class="section-tag gold">🛠️ Studio Production &bull; 7 Bespoke Services</span>
+          <h2>Custom Production &amp; Studio Commissions</h2>
+          <p>Hire Creator Media Studios for high-end color grading, editorial retouching, neural 3D modeling, and cinematic video loops. Book active gigs on Fiverr or commission direct!</p>
+        </div>
+        <a href="mailto:digitalcreatorassets@gmail.com?subject=Studio%20Commission%20Inquiry%20-%20Creator%20Media%20Studios" class="nav-btn primary">
+          ✉️ Direct Commission Inquiry &rarr;
+        </a>
+      </div>
+
+      <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));">
+        
+        <!-- Service 1: Photo Retouching -->
+        <div class="service-card">
+          <img src="assets/service_retouching.jpg" alt="Editorial Portrait Retouching & Relighting">
+          <div class="service-body">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <span class="store-tag" style="margin:0;">FIVERR VERIFIED &bull; TIER 1-3</span>
+                <span style="font-family:'Outfit';font-weight:900;color:#00f2fe;font-size:17px;">From $20</span>
+              </div>
+              <h3>Editorial Photo Retouching &amp; Color Grading</h3>
+              <p>High-end bilateral frequency separation preserving 100% natural skin texture, pore fidelity, and hair details. 5 signature cinematic color grades with 4:5 Instagram and 9:16 vertical crops.</p>
+              <ul style="font-size:12.5px;color:var(--text-muted);list-style:none;margin-bottom:16px;">
+                <li>• Essential Glamour ($20): 5 Photos + 1 Grade</li>
+                <li>• Full Editorial Drop ($45): 15 Photos + 2 Grades + Teasers</li>
+                <li>• VIP Studio Master Set ($85): 40 Photos + All 5 Grades + ZIP</li>
+              </ul>
+            </div>
+            <a href="https://www.fiverr.com/s/GPz71VL" target="_blank" rel="noopener" class="nav-btn primary" style="justify-content:center;">
+              🎨 Book Retouching on Fiverr &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 2: Video Teasers -->
+        <div class="service-card">
+          <img src="assets/service_video_reels.jpg" alt="Short-Form Video Reels & Motion Graphics">
+          <div class="service-body">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <span class="store-tag" style="margin:0;">FIVERR VERIFIED &bull; 60FPS</span>
+                <span style="font-family:'Outfit';font-weight:900;color:#00f2fe;font-size:17px;">From $30</span>
+              </div>
+              <h3>60s Viral Video Teasers &amp; Vertical Reels</h3>
+              <p>Fast-paced cinematic cuts, DaVinci Resolve Super Scale 4K/1080p 60fps exports, audio hook detection, and high-res pose screenshots extracted directly from your raw shoot.</p>
+              <ul style="font-size:12.5px;color:var(--text-muted);list-style:none;margin-bottom:16px;">
+                <li>• Quick Teaser Reel ($30): 30-60s Cut + 6 Pose Stills</li>
+                <li>• Social Promo Duo ($65): Master Teaser + 9:16 Vertical Reel</li>
+                <li>• Full Release Video Kit ($120): Teaser + Reel + 1:1 Square + SFX</li>
+              </ul>
+            </div>
+            <a href="http://www.fiverr.com/s/emmRYZm" target="_blank" rel="noopener" class="nav-btn primary" style="justify-content:center;">
+              🎬 Book Video Reels on Fiverr &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 3: 2D Photo to 3D PBR Model (Unlisted on Fiverr due to limits) -->
+        <div class="service-card" style="border-color:rgba(0,242,254,0.35);">
+          <div style="background:#000;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+            <div style="position:absolute;font-size:64px;opacity:0.35;">🧊</div>
+            <span style="position:relative;z-index:2;background:rgba(0,242,254,0.2);border:1px solid #00f2fe;color:#00f2fe;font-family:'JetBrains Mono';font-size:11px;font-weight:800;padding:4px 10px;border-radius:4px;">NEURAL 3D PIPELINE</span>
+          </div>
+          <div class="service-body">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <span class="store-tag" style="margin:0;color:var(--blueprint-gold);">DIRECT STUDIO EXCLUSIVE</span>
+                <span style="font-family:'Outfit';font-weight:900;color:#00f2fe;font-size:17px;">From $35</span>
+              </div>
+              <h3>2D Photo to 3D PBR Model &amp; Textured GLB/STL</h3>
+              <p>Neural 3D reconstruction converting product photos, character art, or real objects into game-ready .GLB meshes, watertight 3D-printable .STL files, and 4K PBR textures (Albedo, Normal, Roughness).</p>
+              <ul style="font-size:12.5px;color:var(--text-muted);list-style:none;margin-bottom:16px;">
+                <li>• Single 3D Mesh ($35): 1 Photo &rarr; Textured GLB/OBJ + 2K PBR + 360 Video</li>
+                <li>• Pro Game &amp; VR Asset ($75): 4K PBR Maps + GLB/FBX/USDZ + Web Viewer</li>
+                <li>• Commercial Product Suite ($150): 8 Assets + 4K PBR + Full Source Files</li>
+              </ul>
+            </div>
+            <a href="mailto:digitalcreatorassets@gmail.com?subject=Commission%20Inquiry:%20Photo%20to%203D%20Asset" class="nav-btn" style="justify-content:center;border-color:var(--studio-cyan);color:var(--studio-cyan);">
+              🧊 Commission Direct via Studio &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 4: Still Photo to 4K 60fps Video Loop (Unlisted on Fiverr due to limits) -->
+        <div class="service-card" style="border-color:rgba(247,37,133,0.35);">
+          <div style="background:#000;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+            <div style="position:absolute;font-size:64px;opacity:0.35;">🌊</div>
+            <span style="position:relative;z-index:2;background:rgba(247,37,133,0.2);border:1px solid var(--pulse-magenta);color:var(--pulse-magenta);font-family:'JetBrains Mono';font-size:11px;font-weight:800;padding:4px 10px;border-radius:4px;">LIVING CINEMAGRAPH</span>
+          </div>
+          <div class="service-body">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <span class="store-tag" style="margin:0;color:var(--pulse-magenta);">DIRECT STUDIO EXCLUSIVE</span>
+                <span style="font-family:'Outfit';font-weight:900;color:var(--pulse-magenta);font-size:17px;">From $30</span>
+              </div>
+              <h3>Photo to 4K 60fps Living Video Loop &amp; Cinemagraph</h3>
+              <p>Hypnotic living motion with natural organic physics: realistic hair movement, subtle breathing, atmospheric lighting drift, 100% seamless looping with zero stutter, and ambient sound design.</p>
+              <ul style="font-size:12.5px;color:var(--text-muted);list-style:none;margin-bottom:16px;">
+                <li>• Micro Motion Loop ($30): 1 Photo &rarr; Realistic Motion + 1080p Seamless Loop</li>
+                <li>• Cinematic 4K Motion Scene ($65): 3 Photos + 4K 60fps + Ambient Audio</li>
+                <li>• Ultimate Living Portrait ($125): 6 Photos + 4K 60fps + 9:16 &amp; 16:9 Formats</li>
+              </ul>
+            </div>
+            <a href="mailto:digitalcreatorassets@gmail.com?subject=Commission%20Inquiry:%20Photo%20to%20Video%20Loop" class="nav-btn" style="justify-content:center;border-color:var(--pulse-magenta);color:var(--pulse-magenta);">
+              🌊 Commission Direct via Studio &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 5: Neural Studio Relighting (Unlisted on Fiverr due to limits) -->
+        <div class="service-card" style="border-color:rgba(234,179,8,0.35);">
+          <div style="background:#000;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+            <div style="position:absolute;font-size:64px;opacity:0.35;">💡</div>
+            <span style="position:relative;z-index:2;background:rgba(234,179,8,0.2);border:1px solid var(--blueprint-gold);color:var(--blueprint-gold);font-family:'JetBrains Mono';font-size:11px;font-weight:800;padding:4px 10px;border-radius:4px;">RAYTRACED RELIGHTING</span>
+          </div>
+          <div class="service-body">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <span class="store-tag" style="margin:0;color:var(--blueprint-gold);">DIRECT STUDIO EXCLUSIVE</span>
+                <span style="font-family:'Outfit';font-weight:900;color:var(--blueprint-gold);font-size:17px;">From $25</span>
+              </div>
+              <h3>Portrait Neural Relighting &amp; Luxury Backdrops</h3>
+              <p>Physically accurate light recalculation using diffusion raytracing. Mathematical rim lights, ambient bounces, Rembrandt key lights, and seamless integration into luxury architectural environments.</p>
+              <ul style="font-size:12.5px;color:var(--text-muted);list-style:none;margin-bottom:16px;">
+                <li>• Studio Key Light ($25): 3 Portraits relit + Clean textured backdrops</li>
+                <li>• Executive Studio Glow ($50): 10 Portraits relit + 3 Styles (Golden/Neon/Soft)</li>
+                <li>• Celebrity Portfolio ($95): 25 Portraits + Architectural studio backdrops</li>
+              </ul>
+            </div>
+            <a href="mailto:digitalcreatorassets@gmail.com?subject=Commission%20Inquiry:%20Studio%20Relighting" class="nav-btn" style="justify-content:center;border-color:var(--blueprint-gold);color:var(--blueprint-gold);">
+              💡 Commission Direct via Studio &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 6: Social Copywriting & Captions -->
+        <div class="service-card">
+          <div style="background:#000;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+            <div style="position:absolute;font-size:64px;opacity:0.35;">✍️</div>
+            <span style="position:relative;z-index:2;background:rgba(0,242,254,0.2);border:1px solid #00f2fe;color:#00f2fe;font-family:'JetBrains Mono';font-size:11px;font-weight:800;padding:4px 10px;border-radius:4px;">COPYWRITING &amp; HOOKS</span>
+          </div>
+          <div class="service-body">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <span class="store-tag" style="margin:0;">VIRAL RETENTION</span>
+                <span style="font-family:'Outfit';font-weight:900;color:#00f2fe;font-size:17px;">From $15</span>
+              </div>
+              <h3>High-Converting Captions &amp; Algorithmic Hashtags</h3>
+              <p>Psychological teaser hooks, curiosity-driven paywall text, YouTube Shorts titles, and 30 researched niche hashtags designed to convert casual scrollers into paying subscribers.</p>
+              <ul style="font-size:12.5px;color:var(--text-muted);list-style:none;margin-bottom:16px;">
+                <li>• Single Drop Kit ($15): 5 Captions + 30 Researched Hashtags</li>
+                <li>• Weekly Release Plan ($40): 7 Days of copy + PPV hooks + scripts</li>
+                <li>• Monthly Agency Kit ($90): 30 Days of multi-platform copy + upsells</li>
+              </ul>
+            </div>
+            <a href="mailto:digitalcreatorassets@gmail.com?subject=Commission%20Inquiry:%20Social%20Copywriting%20Kit" class="nav-btn" style="justify-content:center;">
+              ✍️ Commission Copywriting &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 7: Channel Banners & Tip Menus -->
+        <div class="service-card">
+          <img src="assets/service_color_grading.jpg" alt="Channel Branding & Custom Graphics">
+          <div class="service-body">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <span class="store-tag" style="margin:0;">FIVERR VERIFIED &bull; GRAPHICS</span>
+                <span style="font-family:'Outfit';font-weight:900;color:#00f2fe;font-size:17px;">From $20</span>
+              </div>
+              <h3>Channel Headers, Tip Menus &amp; Stream Overlays</h3>
+              <p>Custom 16:9 and 3:1 welcome headers, styled tip menu graphics, room rules cards, and interactive OBS webcam overlay code for streamers and creators.</p>
+              <ul style="font-size:12.5px;color:var(--text-muted);list-style:none;margin-bottom:16px;">
+                <li>• Header Banner ($20): Custom high-resolution welcome header</li>
+                <li>• Banner &amp; Tip Menu Duo ($45): Header + Styled Menu + Rules card</li>
+                <li>• Complete Branding Suite ($85): Header + Menu + Schedule + OBS Overlay</li>
+              </ul>
+            </div>
+            <a href="http://www.fiverr.com/s/GPPxKB3" target="_blank" rel="noopener" class="nav-btn primary" style="justify-content:center;">
+              ✨ Book Branding on Fiverr &rarr;
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="site-footer">
       <div class="footer-links">
-        <a href="privacy.html">Privacy Policy (Pinterest &amp; YouTube API)</a>
+        <a href="privacy.html">Privacy Policy (YouTube &amp; Pinterest Compliant)</a>
         <a href="terms.html">Terms of Service &amp; License</a>
         <a href="https://www.etsy.com/shop/CreatorMediaLab" target="_blank" rel="noopener">Etsy Digital Store</a>
-        <a href="https://www.fiverr.com/s/GPz71VL" target="_blank" rel="noopener">Fiverr Photo Retouching</a>
+        <a href="https://www.fiverr.com/s/GPz71VL" target="_blank" rel="noopener">Fiverr Retouching</a>
         <a href="http://www.fiverr.com/s/emmRYZm" target="_blank" rel="noopener">Fiverr Video Reels</a>
-        <a href="http://www.fiverr.com/s/GPPxKB3" target="_blank" rel="noopener">Fiverr Studio Branding</a>
         <a href="https://twitter.com/TheCreatorAsset" target="_blank" rel="noopener">X (@TheCreatorAsset)</a>
         <a href="https://craftymyia.com" target="_blank" rel="noopener">CraftyMyia Maker Studio</a>
       </div>
-      <p style="text-align:center;">
-        &copy; 2026 Creator Media Studios (Creatormediastudios.com &bull; CreatorMediaLab). Contact: <a href="mailto:digitalcreatorassets@gmail.com" style="color:var(--studio-cyan);">digitalcreatorassets@gmail.com</a>
+      <p style="text-align:center;line-height:1.6;">
+        &copy; 2026 <strong>Creator Media Studios</strong> (Creatormediastudios.com &bull; CreatorMediaLab). All Rights Reserved.<br>
+        Direct Contact: <a href="mailto:digitalcreatorassets@gmail.com" style="color:var(--studio-cyan);">digitalcreatorassets@gmail.com</a>
       </p>
     </footer>
 
@@ -1087,29 +1782,38 @@
 
   <script>
     const pubMeta = {
-      studio_wire: { name: "📸 The Shutter & Studio Wire", schedule: "Daily 8:30 AM EST" },
-      creator_blueprint: { name: "⚡ The Creator Blueprint", schedule: "Daily 10:00 AM EST" },
       creator_pulse: { name: "✨ The Daily Creator Pulse", schedule: "Daily 9:00 AM EST" },
-      dispensary_deals: { name: "🌿 Florida Dispensary Deals", schedule: "Daily 7:00 AM EST" }
+      studio_wire: { name: "📸 The Shutter & Studio Wire", schedule: "Daily 8:30 AM EST" },
+      creator_blueprint: { name: "⚡ The Creator Blueprint", schedule: "Daily 10:00 AM EST" }
     };
 
     window.addEventListener("DOMContentLoaded", () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const targetPub = urlParams.get("pub");
+      // Interactive Before / After Slider Logic
+      const slider = document.getElementById('compareSlider');
+      const overlay = document.getElementById('compareOverlay');
+      const handle = document.getElementById('compareHandle');
+      const box = document.getElementById('compareBox');
+      const beforeImg = document.getElementById('compareBeforeImg');
 
-      if (targetPub && pubMeta[targetPub]) {
-        document.querySelectorAll(".pub-card").forEach(card => {
-          if (card.dataset.pub === targetPub) {
-            card.classList.add("selected", "revealed");
-          } else {
-            card.classList.remove("selected");
+      if (slider && overlay && handle && box) {
+        const updateSlider = (val) => {
+          overlay.style.width = val + '%';
+          handle.style.left = val + '%';
+          if (beforeImg) {
+            beforeImg.style.width = box.offsetWidth + 'px';
           }
+        };
+
+        slider.addEventListener('input', (e) => {
+          updateSlider(e.target.value);
         });
-        const alertBox = document.getElementById("targetAlert");
-        const alertText = document.getElementById("targetAlertText");
-        alertText.innerHTML = `🎯 Direct invite loaded for <strong>${pubMeta[targetPub].name}</strong>!`;
-        alertBox.classList.add("active");
+
+        window.addEventListener('resize', () => {
+          if (beforeImg && box) beforeImg.style.width = box.offsetWidth + 'px';
+        });
+        updateSlider(50);
       }
+
       updateSelectionNotice();
     });
 
@@ -1151,14 +1855,14 @@
         await fetch("/api/newsletter/subscribe", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, name, publications, send_welcome: sendWelcome, source: "creatormediastudio" })
+          body: JSON.stringify({ email, name, publications, send_welcome: sendWelcome, source: "creatormediastudios.com" })
         });
       } catch (err) {}
 
       document.getElementById("formView").style.display = "none";
       document.getElementById("confirmedEmail").innerText = email;
       document.getElementById("confirmedList").innerHTML = publications.map(p =>
-        `<div style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.08);">${pubMeta[p].name} &bull; ${pubMeta[p].schedule}</div>`
+        `<div style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.08);">${pubMeta[p]?.name || p} &bull; ${pubMeta[p]?.schedule || 'Daily'}</div>`
       ).join("");
       document.getElementById("successView").style.display = "block";
     }
@@ -1166,36 +1870,18 @@
     function openPreview(pubId, event) {
       if (event) event.stopPropagation();
       const staticMap = {
-        studio_wire: 'preview-studio-wire.html',
-        creator_blueprint: 'preview-creator-blueprint.html',
         creator_pulse: 'preview-creator-pulse.html',
-        dispensary_deals: 'preview-dispensary-deals.html'
+        studio_wire: 'preview-studio-wire.html',
+        creator_blueprint: 'preview-creator-blueprint.html'
       };
-      document.getElementById("modalTitle").innerText = pubMeta[pubId].name + " — Issue Preview";
-      document.getElementById("previewIframe").src = staticMap[pubId];
+      document.getElementById("modalTitle").innerText = (pubMeta[pubId]?.name || 'Briefing') + " — Real Issue Preview";
+      document.getElementById("previewIframe").src = staticMap[pubId] || 'preview-creator-pulse.html';
       document.getElementById("previewModal").classList.add("open");
     }
 
     function closePreview() {
       document.getElementById("previewModal").classList.remove("open");
       document.getElementById("previewIframe").src = "about:blank";
-    }
-
-    async function executeUnsubscribe(pubId) {
-      const email = document.getElementById("unsubEmail").value.trim();
-      const resContainer = document.getElementById("unsubResult");
-      if (!email) return;
-      resContainer.innerText = "Processing...";
-      try {
-        await fetch("/api/newsletter/unsubscribe", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, publication: pubId })
-        });
-        resContainer.innerHTML = `<span style="color:#10b981;">✓ Unsubscribed ${email}.</span>`;
-      } catch (err) {
-        resContainer.innerHTML = `<span style="color:#10b981;">✓ Unsubscribe request logged for ${email}.</span>`;
-      }
     }
   </script>
 </body>
