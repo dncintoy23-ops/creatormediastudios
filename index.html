@@ -1921,6 +1921,23 @@
         updateSlider(50);
       }
 
+      const urlParams = new URLSearchParams(window.location.search);
+      const targetPub = urlParams.get("pub");
+      if (targetPub && pubMeta[targetPub]) {
+        document.querySelectorAll(".pub-card").forEach(card => {
+          if (card.dataset.pub === targetPub) {
+            card.classList.add("selected", "revealed");
+          } else {
+            card.classList.remove("selected");
+          }
+        });
+        const alertBox = document.getElementById("targetAlert");
+        if (alertBox) {
+          alertBox.innerHTML = `🎯 Direct invite loaded for <strong>${pubMeta[targetPub].name}</strong>!`;
+          alertBox.classList.add("active");
+        }
+      }
+
       updateSelectionNotice();
     });
 
